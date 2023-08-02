@@ -23,7 +23,10 @@ class Play extends Component {
         };
     }
 
-    
+    componentDidMount() {
+        const { questions, currentQuestion, nextQuestion, previousQuestion } = this.state;
+        this.displayQuestions(questions, currentQuestion, nextQuestion, previousQuestion);
+    }
         
     //constructor(props) {
         //super(props);
@@ -41,7 +44,7 @@ class Play extends Component {
 
     displayQuestions = (questions = this.state.questions, currentQuestions, nextQuestion, previousQuestion) => {
         let { currentQuestionIndex } = this.state;
-        if(!isEmpty(this.state.questions)) {
+        if (!isEmpty(this.state.questions)) {
             questions = this.state.questions;
             currentQuestion = questions[currentQuestionIndex];
             nextQuestion = questions[currentQuestionIndex + 1];
