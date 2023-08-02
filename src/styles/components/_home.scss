@@ -23,7 +23,7 @@
 
     h1 {
         font-size: $lg;
-        font-weight: 700;
+        font-weight: 200;
         text-align: center;
         color: $off-white;
     }
@@ -41,7 +41,7 @@
         padding: $normal;
         text-align: center;
         //transition: background-color 0.3s ease-in-out;
-        transition: 0.3s linear all;
+        //transition: 0.3s linear all;
 
         //&:hover {
     a.play-button:hover {
@@ -59,12 +59,12 @@
     #login-button {
         background-color: $red;
         //transition: background-color 0.3s ease-in-out;
+    }
     #login-button:hover {
         background-color: darken($red, 10%);
     }
         //&:hover {
             //background-color: darken($off-white, 10%);
-        }
 
     #signup-button { 
         background-color: $blue;
@@ -84,7 +84,8 @@
         width: 45%;
     }
 
-
-
+    .auth-container .auth-buttons:hover {
+        background-color: darken($off-white, 10%);
     }
+}
 }
