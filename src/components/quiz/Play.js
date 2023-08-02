@@ -82,12 +82,12 @@ class Play extends Component {
 
                     <h5>{currentQuestion.question}</h5>
                     <div className="options-container">
-                        <p className="option">{currentQuestion.optionA}</p>
-                        <p className="option">{currentQuestion.optionB}</p>
+                        <p onClick = {this.handleOptionClick} className="option">{currentQuestion.optionA}</p>
+                        <p onClick={this.handleOptionClick} className="option">{currentQuestion.optionB}</p>
                     </div>
                     <div className="options-container">
-                        <p className="option">{currentQuestion.optionC}</p>
-                        <p className="option">{currentQuestion.optionD}</p>   
+                        <p onClick={this.handleOptionClick} className="option">{currentQuestion.optionC}</p>
+                        <p onClick={this.handleOptionClick} className="option">{currentQuestion.optionD}</p>   
                     </div>
                     <div className="button-container">
                         <button>Previous</button>
