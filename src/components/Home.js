@@ -8,7 +8,7 @@ const Home = () => (
         <div id="home">
             <section>
                 <div style={{textAlign: 'center'}}>
-                    <span className="mdi mdi-cube-outline cube"></span>
+                    <span className="mdi mdi-earth earth"></span>
                 </div>
                 <h1>Geo Quiz App</h1>
                 <div className="play-button-container">

@@ -9,27 +9,27 @@
 
     section {
         background-color: rgba(0, 0, 0, 0.7);
-        padding-left: 2rem;
-        padding-right: 2rem;
+        padding-left: $md;
+        padding-right: $md;
         height: 80%;
         width: 35%;
     }
 
-    .cube {
+    .earth {
         font-size: 8rem;
-        color: $orange;
+        color: greenyellow;
 
     }
 
     h1 {
         font-size: $lg;
+        font-weight: 700;
         text-align: center;
         color: $off-white;
     }
 
     .play-button-container {
-        width: 100%
-
+        width: 100%;
     }
 
     a.play-button {
@@ -40,12 +40,12 @@
         cursor: pointer;
         padding: $normal;
         text-align: center;
-        transition: background-color 0.3s ease-in-out;
-        // transition: 0.3s linear all;
+        //transition: background-color 0.3s ease-in-out;
+        transition: 0.3s linear all;
 
         //&:hover {
-        a.play-button:hover {
-            background-color: darken(rgb(49, 157, 49), 10%);
+    a.play-button:hover {
+        background-color: darken(rgb(49, 157, 49), 10%);
         }
 
 
@@ -59,15 +59,19 @@
     #login-button {
         background-color: $red;
         //transition: background-color 0.3s ease-in-out;
-        #login-button:hover {
-            background-color: darken($red, 10%);
-        }
+    #login-button:hover {
+        background-color: darken($red, 10%);
+    }
         //&:hover {
             //background-color: darken($off-white, 10%);
         }
+
     #signup-button { 
         background-color: $blue;
-    
+    }
+
+    #signup-button:hover {
+        background-color: darken($blue, 10%);
     }
 
     .auth-container .auth-buttons {
