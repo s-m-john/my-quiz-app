@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { Helmet } from 'react-helmet';
+import M from 'materialize-css';
 
 import questions from '../../questions.json';
 import isEmpty from '../../utils/is-empty';
@@ -59,7 +60,15 @@ class Play extends Component {
         }
     };
 
-    render() {
+
+    handleOptionClick = (e) => {
+        M.toast({
+            html: 'option Clicked'
+    });
+    }
+
+    
+        render() {
         const { currentQuestion } = this.state;
 
         //console.log(questions);
