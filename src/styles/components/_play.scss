@@ -8,22 +8,40 @@ body {
     width: 100vw;
     
 
-.questions {
-    background-color: $off-white;
-    border-left: 5px solid $blue;
-    width: 80%;
-    margin: $lg auto 0 auto;
-    padding: $sm $md;
-}
+    .questions {
+        background-color: $off-white;
+        border-left: 5px solid $blue;
+        width: 80%;
+        margin: $lg auto 0 auto;
+        padding: $sm $md;
+    }
+
+    h2 {
+        text-align: center;
+        font-weight: lighter;
+    }
 
     .left{
         display: flex;
         justify-content: space-between;
+        margin: $md auto;
     }
 
-    //.timer {
+    .right{
+        display: flex;
+        justify-content: space-between;
+        margin: $md auto;
+    }
+
+    
+    .mdi-24px {
+        color: $blue;
+        display: flex;
+        justify-content: right;
+        margin: 0 0 0 auto;
         //position: relative;
-    //}
+        //top: -3px;
+    }
 
     h5 {
         font-size: $md;
@@ -84,17 +102,17 @@ body {
 
 .buttom-container button:first-child:hover {
         background-color: darken ($blue, 20%);
-    }
+}
 
-.button-container button:nth-child {
+.button-container button:nth-child(2) {
     background-color: $green;
     box-shadow: $shadow;
     transition: 0.2 s linear all;
 }
     
-    .buttom-container button:nth-child:hover {
-        background-color: darken ($green, 20%);
-    }
+.button-container button:nth-child:hover {
+    background-color: darken ($green, 20%);
+}    
 
 .button-container button:last-child {
     background-color: $red;
@@ -102,6 +120,6 @@ body {
     transition: 0.2 s linear all;
 }
 
-.buttom-container button:last-child:hover {
+.button-container button:last-child:hover {
     background-color: darken ($red, 20%);
 }

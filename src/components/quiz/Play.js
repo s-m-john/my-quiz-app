@@ -17,8 +17,7 @@ class Play extends Component {
     };
 
     render() {
-        return (
-            
+        return (    
             // Testing Counter
             /*<div>
                 <p>Counter: {this.state.counter}</p>
@@ -27,22 +26,23 @@ class Play extends Component {
             <Fragment>
                 <Helmet><title>Quiz App - Play</title></Helmet> 
                 <div className="questions">
+                    <h2>Quiz Mode</h2>
                     <div>
                         <p>
                             <span className="left">1 of 10</span>
-                            {/* <span className="question-count">Difficulty: Easy</span> */}
-                            <span className="timer">5:45</span><span className="mdi mdi-clock-outline mdi-24px"></span>
+                            <span className="right">2:15</span>
+                            <span className="mdi mdi-clock-outline mdi-24px"></span>
                         </p>
                     </div>
 
                     <h5>What is the Capital of the United States?</h5>
                     <div className="options-container">
-                        <p className="option-prefix">Miami</p>
-                        <p className="option-text">New York</p>
+                        <p className="option">Miami</p>
+                        <p className="option">New York</p>
                     </div>
                     <div className="options-container">
-                        <p className="option-prefix">Chicago</p>
-                        <p className="option-text">Washington, D.C.</p>   
+                        <p className="option">Chicago</p>
+                        <p className="option">Washington, D.C.</p>   
                     </div>
                     <div className="button-container">
                         <button>Previous</button>
