@@ -4,29 +4,30 @@
     margin-top: $lg;
     margin-bottom: $lg;
     padding: $sm $lg;
-}
 
-h1 {
-    color: $off-white;
-    font-size: $xl;
-    text-align: center;
-}
 
-body {
-    background-color: $light-green;
-    color: darkgreen;
-    font-size: $sm;
-}
+    h1 {
+        color: $off-white;
+        font-size: $xl;
+        text-align: center;
+    }
 
-.browser-default {
-    padding-left: 30px;
-    margin-top: 10px;
-    margin-bottom: 15px;
-}
+    body {
+        background-color: $light-green;
+        color: darkgreen;
+        font-size: $sm;
+    }
 
-img {
-    width: 50%;
-    height: 50%;
+    .browser-default {
+        padding-left: 30px;
+        margin-top: 10px;
+        margin-bottom: 15px;
+    }
+
+    img {
+        width: 50%;
+        height: 50%;
+    }
 }
 
 @media (max-width: $md-breakpoint) {

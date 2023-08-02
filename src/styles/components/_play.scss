@@ -1,0 +1,45 @@
+body {
+    background-image: url('../../assets/img/quizpage.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: space-around;
+    height: 100vh;  
+    width: 100vw;
+}
+
+.questions {
+    background-color: $off-white;
+    border-left: 5px solid $blue;
+    width: 80%;
+    margin: $lg auto 0 auto;
+    padding: $sm $md;
+
+
+    h5 {
+        font-size: $md;
+        margin-bottom: $lg;
+        line-height: 1.5;
+        text-align: center;
+    }
+
+    .options-container {
+        display: inline-block;
+        width: 50%;
+    }
+
+    .option {
+        background-color: $blue;
+        border-radius: $button-radius;
+        color: #ffff;
+        cursor: pointer;
+        display: block;
+        font-size: $md;
+        margin-bottom: $md;
+        padding: $normal;
+        text-align: center;
+        transition: background-color 0.3s linear all;
+        width: 90%;
+    }
+
+}

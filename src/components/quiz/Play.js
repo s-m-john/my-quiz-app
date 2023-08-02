@@ -31,7 +31,7 @@ class Play extends Component {
                         <p>
                             <span className="question-count">1 of 10</span>
                             {/* <span className="question-count">Difficulty: Easy</span> */}
-                            <span className="mdi mdi-clock-outline mdi-24px"></span>
+                            <span className="timer">5:45</span><span className="mdi mdi-clock-outline mdi-24px"></span>
                         </p>
                     </div>
 
