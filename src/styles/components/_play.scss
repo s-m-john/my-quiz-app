@@ -6,14 +6,15 @@ body {
     justify-content: space-around;
     height: 100vh;  
     width: 100vw;
-}
+    
 
-.questions {
+    .questions {
     background-color: $off-white;
     border-left: 5px solid $blue;
     width: 80%;
     margin: $lg auto 0 auto;
     padding: $sm $md;
+    }
 
     .question-count {
         display: flex
@@ -40,11 +41,49 @@ body {
         cursor: pointer;
         display: block;
         font-size: $md;
-        margin-bottom: $md;
+        margin: $md auto;
         padding: $normal;
         text-align: center;
         transition: background-color 0.3s linear all;
         width: 90%;
     }
 
+    .option:hover {
+        background-color: darken ($blue, 20%);
+    }
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 0 auto $sm auto;
+    padding: $md;
+    width: 80%;
+}
+
+.button-container button {
+    background-color: $blue;
+    border: none;
+    color: $off-white;
+    cursor: pointer;
+    font-family: $handjet;
+    margin-right: $md;
+    padding: $xs $sm;
+    transition: background-color 0.3s linear all;
+}
+
+.buttom-container button:first-child {
+    background-color: darken ($blue, 10%);
+    box-shadow: $shadow;
+    transition: 0.2 s linear all;
+}
+
+.buttom-container button:first-child:hover {
+        background-color: darken ($blue, 20%);
+    }
+
+.button-container button:last-child {
+    background-color: $green;
+    box-shadow: $shadow;
+    transition: 0.2 s linear all;
 }
