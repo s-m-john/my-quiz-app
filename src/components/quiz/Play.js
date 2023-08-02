@@ -64,7 +64,23 @@ class Play extends Component {
     handleOptionClick = (e) => {
         M.toast({
             html: 'option Clicked'
-    });
+        });
+    }
+
+    correctAnswer = () => {
+        M.toast({
+            html: 'Correct Answer',
+            classes: 'toast-valid',
+            displayLength: 1500
+        });
+        this.setState(prevState => ({
+            score: prevState.score + 1,
+            correctAnswers: prevState.correctAnswers + 1,
+            currentQuestionIndex: prevState.currentQuestionIndex + 1,
+            numberOfAnsweredQuestion: prevState.numberOfAnsweredQuestion + 1
+        }), () => {
+            this.displayQuestions(this.state.questions, this.state.currentQuestion, this.state.nextQuestion, this.state.previousQuestion);
+        });
     }
 
     
@@ -91,7 +107,7 @@ class Play extends Component {
 
                     <h5>{currentQuestion.question}</h5>
                     <div className="options-container">
-                        <p onClick = {this.handleOptionClick} className="option">{currentQuestion.optionA}</p>
+                        <p onClick = {this.handleOptionClick}className="option">{currentQuestion.optionA}</p>
                         <p onClick={this.handleOptionClick} className="option">{currentQuestion.optionB}</p>
                     </div>
                     <div className="options-container">
