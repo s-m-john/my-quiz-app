@@ -61,7 +61,9 @@ class Play extends Component {
     };
 
     render() {
-        console.log(questions);
+        const { currentQuestion } = this.state;
+
+        //console.log(questions);
         return (    
             // Testing Counter
             /*<div>
@@ -79,14 +81,14 @@ class Play extends Component {
                         </p>
                     </div>
 
-                    <h5>What is the Capital of the United States?</h5>
+                    <h5>{currentQuestion.question}</h5>
                     <div className="options-container">
-                        <p className="option">Miami</p>
-                        <p className="option">New York</p>
+                        <p className="option">{currentQuestion.optionA}</p>
+                        <p className="option">{currentQuestion.optionB}</p>
                     </div>
                     <div className="options-container">
-                        <p className="option">Chicago</p>
-                        <p className="option">Washington, D.C.</p>   
+                        <p className="option">{currentQuestion.optionC}</p>
+                        <p className="option">{currentQuestion.optionD}</p>   
                     </div>
                     <div className="button-container">
                         <button>Previous</button>
