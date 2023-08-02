@@ -8,18 +8,22 @@ body {
     width: 100vw;
     
 
-    .questions {
+.questions {
     background-color: $off-white;
     border-left: 5px solid $blue;
     width: 80%;
     margin: $lg auto 0 auto;
     padding: $sm $md;
+}
+
+    .left{
+        display: flex;
+        justify-content: space-between;
     }
 
-    .question-count {
-        display: flex
-        //justify-content: space-between;
-    }
+    //.timer {
+        //position: relative;
+    //}
 
     h5 {
         font-size: $md;
@@ -37,14 +41,14 @@ body {
     .option {
         background-color: $blue;
         border-radius: $button-radius;
-        color: #ffff;
+        color: $white;
         cursor: pointer;
-        display: block;
-        font-size: $md;
+        //display: block;
+        //font-size: $lg;
         margin: $md auto;
         padding: $normal;
-        text-align: center;
         transition: background-color 0.3s linear all;
+        text-align: center;
         width: 90%;
     }
 
@@ -82,8 +86,22 @@ body {
         background-color: darken ($blue, 20%);
     }
 
-.button-container button:last-child {
+.button-container button:nth-child {
     background-color: $green;
     box-shadow: $shadow;
     transition: 0.2 s linear all;
+}
+    
+    .buttom-container button:nth-child:hover {
+        background-color: darken ($green, 20%);
+    }
+
+.button-container button:last-child {
+    background-color: $red;
+    box-shadow: $shadow;
+    transition: 0.2 s linear all;
+}
+
+.buttom-container button:last-child:hover {
+    background-color: darken ($red, 20%);
 }
