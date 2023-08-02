@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { Helmet } from 'react-helmet';
 
 import questions from '../../questions.json';
+import isEmpty from '../../utils/is-empty';
 class Play extends Component {
     constructor(props) {
         super(props);
