@@ -41,35 +41,42 @@
         padding: $normal;
         text-align: center;
         transition: background-color 0.3s ease-in-out;
+        // transition: 0.3s linear all;
 
-        &:hover {
+        //&:hover {
+        a.play-button:hover {
             background-color: darken(rgb(49, 157, 49), 10%);
         }
+
 
     .auth-container {
             width: 100%;
             display: flex;
             justify-content: space-around;
+            margin-top: $lg;
     }
 
     #login-button {
-        background-color:red;
-        transition: background-color 0.3s ease-in-out;
-
-        &:hover {
-            background-color: darken($off-white, 10%);
+        background-color: $red;
+        //transition: background-color 0.3s ease-in-out;
+        #login-button:hover {
+            background-color: darken($red, 10%);
+        }
+        //&:hover {
+            //background-color: darken($off-white, 10%);
         }
     #signup-button { 
-        background-color: green;
+        background-color: $blue;
+    
     }
 
-    }
-    .auth-container ,auth-buttons {
-        color: white;
+    .auth-container .auth-buttons {
+        color: #ffff;
         cursor: pointer;
-        border-radius: 30px;
+        border-radius: $button-radius;
         padding: $normal 0;
         text-align: center;
+        transition: 0.3s linear all; 
         width: 45%;
     }
 
