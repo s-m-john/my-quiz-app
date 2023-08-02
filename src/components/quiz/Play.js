@@ -159,9 +159,9 @@ class Play extends Component {
                         <p onClick={this.handleOptionClick} className="option">{currentQuestion.optionD}</p>   
                     </div>
                     <div className="button-container">
-                        <button>Previous</button>
-                        <button>Next</button>
-                        <button>Quit</button>
+                        <button onClick={this.handleButtonClick}>Previous</button>
+                        <button onClick={this.handleButtonClick}>Next</button>
+                        <button onClick={this.handleButtonClick}>Quit</button>
                     </div>
                 </div>
             </Fragment>
