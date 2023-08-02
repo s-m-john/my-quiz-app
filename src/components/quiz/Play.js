@@ -62,9 +62,11 @@ class Play extends Component {
 
 
     handleOptionClick = (e) => {
-        M.toast({
-            html: 'option Clicked'
-        });
+        if (e.target.innerHTML.toLowerCase() === this.state.answertoLowerCase()) {
+            this.correctAnswer();
+        } else {
+            this.wrongAnswer();
+        }
     }
 
     correctAnswer = () => {
@@ -81,6 +83,22 @@ class Play extends Component {
         }), () => {
             this.displayQuestions(this.state.questions, this.state.currentQuestion, this.state.nextQuestion, this.state.previousQuestion);
         });
+    }
+
+
+    wrongAnswer = () => {
+        navigator.vibrate(1000); // vibrate for 1000ms when incorrect answer
+        M.toast({
+            html: 'Wrong Answer!',
+            classes: 'toast-invalid',
+            displayLength: 1500
+        });
+        this.setState(prevState => ({
+            
+            wrongAnswers: prevState.correctAnswers + 1,
+            currentQuestionIndex: prevState.currentQuestionIndex + 1,
+            numberOfAnsweredQuestion: prevState.numberOfAnsweredQuestion
+        }));
     }
 
     
