@@ -34,11 +34,12 @@
 
     a.play-button {
         background-color: $green;
-        color: $off-white;
-        font-size: $lg;
-        border: none;
-        border-radius: 5px;
+        border-radius: $button-radius;
+        color: #ffff;
+        display: block;
         cursor: pointer;
+        padding: $normal;
+        text-align: center;
         transition: background-color 0.3s ease-in-out;
 
         &:hover {
@@ -52,12 +53,7 @@
     }
 
     #login-button {
-        background-color: red;
-        color: $green;
-        font-size: $lg;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
+        background-color:red;
         transition: background-color 0.3s ease-in-out;
 
         &:hover {
