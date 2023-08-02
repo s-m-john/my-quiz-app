@@ -2,12 +2,12 @@ import React, { Component, Fragment } from 'react';
 import { Helmet } from 'react-helmet';
 
 class Play extends Component {
-    constructor(props) {
-        super(props);
+    //constructor(props) {
+        //super(props);
         /*this.state = {
             counter: 0
         };*/
-    }
+    //}
 
     increaseCount = () => {
         this.setState({
@@ -27,11 +27,10 @@ class Play extends Component {
                 <Helmet><title>Quiz App - Play</title></Helmet> 
                 <div className="questions">
                     <h2>Quiz Mode</h2>
-                    <div>
+                    <div className="timer-container">
                         <p>
                             <span className="left">1 of 10</span>
-                            <span className="right">2:15</span>
-                            <span className="mdi mdi-clock-outline mdi-24px"></span>
+                            <span className="right">0:00<span className="mdi mdi-clock-outline mdi-24px"></span></span>
                         </p>
                     </div>
 

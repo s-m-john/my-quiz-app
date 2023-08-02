@@ -1,0 +1,20 @@
+[
+    {
+        "question": "What is the capital of India?",
+        "option1": "Delhi",
+        "option2": "Mumbai",
+        "option3": "Kolkata",
+        "option4": "Chennai",
+        "answer": "1"
+        // or "answer": "Delhi"
+    },
+
+    {
+        "question": "What is the capital of Country?",
+        "option1": "A",
+        "option2": "B",
+        "option3": "C",
+        "option4": "D",
+        "answer": "1"
+    }   
+]
