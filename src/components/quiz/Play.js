@@ -62,7 +62,7 @@ class Play extends Component {
 
 
     handleOptionClick = (e) => {
-        if (e.target.innerHTML.toLowerCase() === this.state.answertoLowerCase()) {
+        if (e.target.innerHTML.toLowerCase() === this.state.answer.toLowerCase()) {
             this.correctAnswer();
         } else {
             this.wrongAnswer();
