@@ -124,7 +124,7 @@ class Play extends Component {
 
     
         render() {
-        const { currentQuestion } = this.state;
+        const { currentQuestion, currentQuestionIndex, numberOfQuestions } = this.state;
 
         //console.log(questions);
         return (    
@@ -144,7 +144,7 @@ class Play extends Component {
                     <h2>Quiz Mode</h2>
                     <div className="timer-container">
                         <p>
-                            <span className="left">1 of 10</span>
+                            <span className="left">{currentQuestionIndex + 1} of {numberOfQuestions}</span>
                             <span className="right">0:00<span className="mdi mdi-clock-outline mdi-24px"></span></span>
                         </p>
                     </div>
@@ -159,9 +159,9 @@ class Play extends Component {
                         <p onClick={this.handleOptionClick} className="option">{currentQuestion.optionD}</p>   
                     </div>
                     <div className="button-container">
-                        <button onClick={this.handleButtonClick}>Previous</button>
-                        <button onClick={this.handleButtonClick}>Next</button>
-                        <button onClick={this.handleButtonClick}>Quit</button>
+                        <button onClick={this.handleButtonClick}>Previous</button>
+                        <button onClick={this.handleButtonClick}>Next</button>
+                        <button onClick={this.handleButtonClick}>Quit</button>
                     </div>
                 </div>
             </Fragment>
