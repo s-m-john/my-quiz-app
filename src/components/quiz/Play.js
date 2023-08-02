@@ -14,7 +14,7 @@ class Play extends Component {
             previousQuestion: {},
             answer: '',
             numberOfQuestions: 0,
-            numberOfAnsweredQuestion: 0,
+            numberOfAnsweredQuestions: 0,
             currentQuestionIndex: 0,
             score: 0,
             correctAnswers: 0,
@@ -79,7 +79,7 @@ class Play extends Component {
             score: prevState.score + 1,
             correctAnswers: prevState.correctAnswers + 1,
             currentQuestionIndex: prevState.currentQuestionIndex + 1,
-            numberOfAnsweredQuestion: prevState.numberOfAnsweredQuestion + 1
+            numberOfAnsweredQuestions: prevState.numberOfAnsweredQuestions + 1
         }), () => {
             this.displayQuestions(this.state.questions, this.state.currentQuestion, this.state.nextQuestion, this.state.previousQuestion);
         });
@@ -97,9 +97,12 @@ class Play extends Component {
             
             wrongAnswers: prevState.correctAnswers + 1,
             currentQuestionIndex: prevState.currentQuestionIndex + 1,
-            numberOfAnsweredQuestion: prevState.numberOfAnsweredQuestion
-        }));
+            numberOfAnsweredQuestions: prevState.numberOfAnsweredQuestion + 1
+        }), () => {
+            this.displayQuestions(this.state.questions, this.state.currentQuestion, this.state.nextQuestion, this.state.previousQuestion);
+        });
     }
+
 
     
         render() {
