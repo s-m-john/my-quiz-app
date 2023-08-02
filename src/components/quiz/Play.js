@@ -1,22 +1,54 @@
 import React, { Component, Fragment } from 'react';
 import { Helmet } from 'react-helmet';
 
+import questions from '../../questions.json';
 class Play extends Component {
-    //constructor(props) {
-        //super(props);
+    constructor(props) {
+        super(props);
         /*this.state = {
             counter: 0
         };*/
-    //}
+        this.state = {
+            questions: [],
+            currentQuestion: {},
+            nextQuestion: {},
+            previousQuestion: {},
+            answer: '',
+            numberOfQuestions: 0,
+            numberOfAnsweredQuestions: 0,
+            currentQuestionIndex: 0,
+            score: 0,
+            correctAnswers: 0,
+            wrongAnswers: 0,
+            time: {}
+        };
+    }
 
-    increaseCount = () => {
-        this.setState({
-            counter: 5
+    displayQuestions = (questions = this.state.questions, currentQuestion, nextQuestion, previousQuestion) => {
+        let { currentQuestionIndex } = this.state;
+        if (this.state.questions.length > 0) {
+            questions = this.state.questions;
+            currentQuestion = questions[currentQuestionIndex];
+            nextQuestion = questions[currentQuestionIndex + 1];
+            previousQuestion = questions[currentQuestionIndex - 1];
+            const answer = currentQuestion.answer;
+            this.setState({
+                currentQuestion,
+                nextQuestion,
+                previousQuestion,
+                numberOfQuestions: questions.length,
+                answer
+            });
+        };
+            //increaseCount = () => {
+        // this.setState({
+            // counter: 5
             //counter: this.state.counter + 1
-        });
-    };
+        // });
+    // };
 
     render() {
+        console.log(questions);
         return (    
             // Testing Counter
             /*<div>
