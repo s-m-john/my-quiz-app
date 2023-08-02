@@ -68,10 +68,14 @@ class Play extends Component {
 
     handleOptionClick = (e) => {
         if (e.target.innerHTML.toLowerCase() === this.state.answer.toLowerCase()) {
-            document.getElementById('correct-sound').play();
+            setTimeout(() => {
+                document.getElementById('correct-sound').play();
+            }, 500); // 500ms delay before next question so sound can play.
             this.correctAnswer();
         } else {
+            setTimeout(() => {
             document.getElementById('wrong-sound').play();
+            }, 500); // 500ms delay before next question so sound can play.
             this.wrongAnswer();
         }
     }
