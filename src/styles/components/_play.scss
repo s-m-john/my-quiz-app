@@ -15,6 +15,10 @@ body {
     margin: $lg auto 0 auto;
     padding: $sm $md;
 
+    .question-count {
+        display: flex
+        //justify-content: space-between;
+    }
 
     h5 {
         font-size: $md;
@@ -22,6 +26,7 @@ body {
         line-height: 1.5;
         text-align: center;
     }
+
 
     .options-container {
         display: inline-block;
