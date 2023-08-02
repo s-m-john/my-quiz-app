@@ -6,7 +6,6 @@
         "option3": "Kolkata",
         "option4": "Chennai",
         "answer": "1"
-        // or "answer": "Delhi"
     },
 
     {
@@ -16,5 +15,77 @@
         "option3": "C",
         "option4": "D",
         "answer": "1"
-    }  
+    },
+
+    {
+        "question": "What is the capital of Country?",
+        "option1": "A",
+        "option2": "B",
+        "option3": "C",
+        "option4": "D",
+        "answer": "1"
+    },
+
+    {
+        "question": "What is the capital of Country?",
+        "option1": "A",
+        "option2": "B",
+        "option3": "C",
+        "option4": "D",
+        "answer": "1"
+    },
+
+    {
+        "question": "What is the capital of Country?",
+        "option1": "A",
+        "option2": "B",
+        "option3": "C",
+        "option4": "D",
+        "answer": "1"
+    },
+
+    {
+        "question": "What is the capital of Country?",
+        "option1": "A",
+        "option2": "B",
+        "option3": "C",
+        "option4": "D",
+        "answer": "1"
+    },
+
+    {
+        "question": "What is the capital of Country?",
+        "option1": "A",
+        "option2": "B",
+        "option3": "C",
+        "option4": "D",
+        "answer": "1"
+    },
+
+    {
+        "question": "What is the capital of Country?",
+        "option1": "A",
+        "option2": "B",
+        "option3": "C",
+        "option4": "D",
+        "answer": "1"
+    },
+
+    {
+        "question": "What is the capital of Country?",
+        "option1": "A",
+        "option2": "B",
+        "option3": "C",
+        "option4": "D",
+        "answer": "1"
+    },
+
+    {
+        "question": "What is the capital of Country?",
+        "option1": "A",
+        "option2": "B",
+        "option3": "C",
+        "option4": "D",
+        "answer": "1"
+    } 
 ]
