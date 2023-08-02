@@ -122,6 +122,11 @@ class Play extends Component {
             </div> */
             <Fragment>
                 <Helmet><title>Quiz App - Play</title></Helmet> 
+                <Fragment>
+                    <audio id="correct-sound" src={correctNotification}></audio>
+                    <audio id="wrong-sound" src={wrongNotification}></audio>
+                    <audio id="button-sound" src={buttonSound}></audio>
+                </Fragment>
                 <div className="questions">
                     <h2>Quiz Mode</h2>
                     <div className="timer-container">
