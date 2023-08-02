@@ -4,6 +4,11 @@ import M from 'materialize-css';
 
 import questions from '../../questions.json';
 import isEmpty from '../../utils/is-empty';
+
+import correctNotification from '../../assets/audio/correct-answer.mp3';
+import wrongNotification from '../../assets/audio/wrong-answer.mp3';
+import buttonSound from '../../assets/audio/button-sound.mp3';
+
 class Play extends Component {
     constructor (props) {
         super(props);
