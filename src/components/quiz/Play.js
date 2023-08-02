@@ -68,8 +68,10 @@ class Play extends Component {
 
     handleOptionClick = (e) => {
         if (e.target.innerHTML.toLowerCase() === this.state.answer.toLowerCase()) {
+            document.getElementById('correct-sound').play();
             this.correctAnswer();
         } else {
+            document.getElementById('wrong-sound').play();
             this.wrongAnswer();
         }
     }
