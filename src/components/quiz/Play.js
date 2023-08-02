@@ -80,6 +80,13 @@ class Play extends Component {
         }
     }
 
+    handleButtonClick = (e) => {
+    };
+
+    playButtonSound = () => {
+        document.getElementById('button-sound').play();
+    };
+
     correctAnswer = () => {
         M.toast({
             html: 'Correct Answer',
