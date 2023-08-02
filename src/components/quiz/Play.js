@@ -4,22 +4,21 @@ import { Helmet } from 'react-helmet';
 import questions from '../../questions.json';
 import isEmpty from '../../utils/is-empty';
 class Play extends Component {
-    constructor(props) {
+    constructor (props) {
         super(props);
         this.state = {
-        questions: [],
-        currentQuestion: {},
-        nextQuestion: {},
-        previousQuestion: {},
-        answer: '',
-        numberOfQuestions: 0,
-        numberOfAnsweredQuestions: 0,
-        currentQuestionIndex: 0,
-        score: 0,
-        correctAnswers: 0,
-        wrongAnswers: 0,
-        time: {}
-
+            questions,
+            currentQuestion: {},
+            nextQuestion: {},
+            previousQuestion: {},
+            answer: '',
+            numberOfQuestions: 0,
+            numberOfAnsweredQuestion: 0,
+            currentQuestionIndex: 0,
+            score: 0,
+            correctAnswers: 0,
+            wrongAnswers: 0,
+            time: {}
         };
     }
 
@@ -42,7 +41,7 @@ class Play extends Component {
     //     });
     // };
 
-    displayQuestions = (questions = this.state.questions, currentQuestions, nextQuestion, previousQuestion) => {
+    displayQuestions = (questions = this.state.questions, currentQuestion, nextQuestion, previousQuestion) => {
         let { currentQuestionIndex } = this.state;
         if (!isEmpty(this.state.questions)) {
             questions = this.state.questions;
