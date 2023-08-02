@@ -10,7 +10,7 @@ const QuizInstructions = () => (
             <p>Ensure you read this guide from start to finish.</p>
             <ul className="browser-default" id="main-list">
                 <li>The game has a duration of 15 minutes and ends as soon as your time elapses.</li>
-                <li>Each game consists of 15 questions.</li>
+                <li>Each game consists of 10 questions.</li>
                 <li>
                     Every question contains 4 options.
                     {/* <img src={options} alt="Quiz App options example" /> */}
@@ -23,6 +23,10 @@ const QuizInstructions = () => (
                 <li>You can quit the game at any time. Your progress will be saved.</li>
 
             </ul>
+            <div>
+                <span className="left"><Link to="/">No, take me back</Link></span>
+                <span className="right"><Link to="/play/quiz">Okay, Let's do this!</Link></span>
+            </div>
         </div>
     </Fragment>
 );
