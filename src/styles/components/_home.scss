@@ -37,11 +37,12 @@
         background-color: $green;
         border-radius: $button-radius;
         color: #ffff;
+        font-size: $md;
         display: block;
         cursor: pointer;
         padding: $normal;
         text-align: center;
-        transition: background-color 0.3s ease-in-out;
+        //transition: background-color 0.3s ease-in-out;
         //transition: 0.3s linear all;
 
         //&:hover {
@@ -79,6 +80,7 @@
     }
 
     .auth-container .auth-buttons {
+    //.auth-buttons {
         color: #ffff;
         cursor: pointer;
         border-radius: $button-radius;
@@ -89,6 +91,7 @@
     }
 
     .auth-container .auth-buttons:hover {
+    //&.auth-buttons:hover {
         background-color: darken($off-white, 10%);
     }
 }

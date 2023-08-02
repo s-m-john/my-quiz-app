@@ -17,8 +17,14 @@ const Home = () => (
                     </ul>
                 </div>
                 <div className="auth-container">
-                    <Link to="/login" className="auth-buttons" id="login-button">Login</Link>
-                    <Link to="/register" className="auth-buttons" id="signup-button">Sign up</Link>
+                    {/* <Link to="/login" className="auth-buttons" id="login-button">Login</Link> */}
+                    {/* <Link to="/register" className="auth-buttons" id="signup-button">Sign up</Link> */}
+                    <button className="auth-buttons" id="login-button">
+                        <Link to="/login">Login</Link>
+                    </button>
+                    <button className="auth-buttons" id="signup-button">
+                        <Link to="/register">Sign up</Link>
+                    </button>
                 </div>
             </section>
         </div>
