@@ -230,7 +230,7 @@ class Play extends Component {
         };
         console.log(playerStats);
         setTimeout(() => {
-            this.props.history.push('/');
+            this.props.history.push('/play/quizSummary', playerStats);
         }, 1000);
     }
 
