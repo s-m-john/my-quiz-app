@@ -224,7 +224,7 @@ class Play extends Component {
         const playerStats = {
             score: this.state.score,
             numberOfQuestions: state.numberOfQuestions,
-            numberOfAnsweredQuestions: state.numberOfAnsweredQuestions,
+            numberOfAnsweredQuestions: state.correctAnswers + state.wrongAnswers,
             correctAnswers: state.correctAnswers,
             wrongAnswers: state.wrongAnswers
         };
