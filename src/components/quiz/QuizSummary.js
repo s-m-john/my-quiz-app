@@ -1,4 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component,Fragment } from 'react';
+import { Helmet } from 'react-helmet';
+
 
 class QuizSummary extends Component {
     constructor(props) {
@@ -10,11 +12,32 @@ class QuizSummary extends Component {
             correctAnswers: 0,
             wrongAnswers: 0,
         };
+
+        this.componentDidMount = () => {
+            const { state } = this.props.location;
+            this.setState({
+                score: (state.score / state.numberOfQuestions) * 100,
+                numberOfQuestions: state.numberOfQuestions,
+                numberOfAnsweredQuestions: state.numberOfAnsweredQuestions,
+                correctAnswers: state.correctAnswers,
+                wrongAnswers: state.wrongAnswers,
+            });
+        }
     }
     render() {
-        console.log(this.props);
+        //console.log(this.props);
+        const { state } = this.props.location;
+        let stats;
+        if (state !== undefined) {
+            stats = (<h1>Stats are available</h1>);
+            
+        } else (<h1>No Stats available. Please take a quiz.</h1>);
+
         return (
-            <h1>Quiz Summary</h1>
+            <Fragment>
+                <Helmet><title>Quiz App - Summary</title></Helmet>
+                {stats}
+            </Fragment>
         );
     }
 }
