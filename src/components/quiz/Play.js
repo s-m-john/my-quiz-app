@@ -143,7 +143,7 @@ class Play extends Component {
     }
 
     startTimer = () => {
-        const countDownTime = Date.now() + 30000; 
+        const countDownTime = Date.now() + 900000; // 15 minutes from now
         this.interval = setInterval(() => {
             const now = new Date();
             const distance = countDownTime - now;
