@@ -31,6 +31,9 @@ class Play extends Component {
             time: {}
         };
         this.interval = null;
+        this.correctSound = React.createRef();
+        this.wrongSound = React.createRef();
+        this.buttonSound = React.createRef();
     }
 
     componentDidMount() {
@@ -42,7 +45,7 @@ class Play extends Component {
     componentWillUnmount() {
         clearInterval(this.interval);
     }
-    
+
     //constructor(props) {
         //super(props);
         /*this.state = {
@@ -83,12 +86,12 @@ class Play extends Component {
     handleOptionClick = (e) => {
         if (e.target.innerHTML.toLowerCase() === this.state.answer.toLowerCase()) {
             setTimeout(() => {
-                document.getElementById('correct-sound').play();
+                this.correctSound.current.play();
             }, 500); // 500ms delay before next question so sound can play.
             this.correctAnswer();
         } else {
             setTimeout(() => {
-            document.getElementById('wrong-sound').play();
+            this.wrongSound.current.play();
             }, 500); // 500ms delay before next question so sound can play.
             this.wrongAnswer();
         }
@@ -117,7 +120,7 @@ class Play extends Component {
     };
 
     playButtonSound = () => {
-        document.getElementById('button-sound').play();
+        this.buttonSound.current.play();
     };
 
     correctAnswer = () => {
@@ -227,7 +230,7 @@ class Play extends Component {
         };
         console.log(playerStats);
         setTimeout(() => {
-            this.props.history.push('/play/quizSummary', playerStats);
+            this.props.history.push('/');
         }, 1000);
     }
 
@@ -249,9 +252,9 @@ class Play extends Component {
             {/* Set the page title */}
             <Helmet><title>Quiz App - Play</title></Helmet> 
             {/* Load audio elements */}
-            <audio id="correct-sound" src={correctNotification}></audio>
-            <audio id="wrong-sound" src={wrongNotification}></audio>
-            <audio id="button-sound" src={buttonSound}></audio>
+            <audio ref={this.correctSound} src={correctNotification}></audio>
+            <audio ref={this.wrongSound} src={wrongNotification}></audio>
+            <audio ref={this.buttonSound} src={buttonSound}></audio>
 
             {/* Main content */}
             <div className="questions">
