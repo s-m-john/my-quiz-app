@@ -80,7 +80,26 @@ class Play extends Component {
         }
     }
 
+    handleNextButtonClick = () => {
+        this.playButtonSound();
+        if (this.state.nextQuestion !== undefined) {
+            this.setState(prevState => ({
+                currentQuestionIndex: prevState.currentQuestionIndex + 1
+            }), () => {
+                this.displayQuestions(this.state.questions, this.state.currentQuestion, this.state.nextQuestion, this.state.previousQuestion);
+            });
+        }
+    };
+
     handleButtonClick = (e) => {
+        switch(e.target.id) {
+            case 'next-button':
+                this.handleNextButtonClick();
+                break;
+                
+            default:
+                break;
+        }
     };
 
     playButtonSound = () => {
@@ -115,17 +134,16 @@ class Play extends Component {
             
             wrongAnswers: prevState.correctAnswers + 1,
             currentQuestionIndex: prevState.currentQuestionIndex + 1,
-            numberOfAnsweredQuestions: prevState.numberOfAnsweredQuestion + 1
+            numberOfAnsweredQuestions: prevState.numberOfAnsweredQuestions + 1
         }), () => {
-            this.displayQuestions(this.state.questions, this.state.currentQuestion, this.state.nextQuestion, this.state.previousQuestion);
+            this.displayQuestions(this.state.questions, this.state.currentQuestions, this.state.nextQuestion, this.state.previousQuestion);
         });
     }
 
 
     
-        render() {
-        const { currentQuestion, currentQuestionIndex, numberOfQuestions } = this.state;
-
+    render() {
+        const { currentQuestion, currentQuestionIndex, numberOfQuestions } = this.state;    
         //console.log(questions);
         return (    
             // Testing Counter
@@ -134,39 +152,43 @@ class Play extends Component {
             <button onClick={this.increaseCount}>Click Me</button>
             </div> */
             <Fragment>
-                <Helmet><title>Quiz App - Play</title></Helmet> 
-                <Fragment>
-                    <audio id="correct-sound" src={correctNotification}></audio>
-                    <audio id="wrong-sound" src={wrongNotification}></audio>
-                    <audio id="button-sound" src={buttonSound}></audio>
-                </Fragment>
-                <div className="questions">
-                    <h2>Quiz Mode</h2>
-                    <div className="timer-container">
-                        <p>
-                            <span className="left">{currentQuestionIndex + 1} of {numberOfQuestions}</span>
-                            <span className="right">0:00<span className="mdi mdi-clock-outline mdi-24px"></span></span>
-                        </p>
-                    </div>
+            {/* Set the page title */}
+            <Helmet><title>Quiz App - Play</title></Helmet> 
+            {/* Load audio elements */}
+            <audio id="correct-sound" src={correctNotification}></audio>
+            <audio id="wrong-sound" src={wrongNotification}></audio>
+            <audio id="button-sound" src={buttonSound}></audio>
 
-                    <h5>{currentQuestion.question}</h5>
-                    <div className="options-container">
-                        <p onClick = {this.handleOptionClick}className="option">{currentQuestion.optionA}</p>
-                        <p onClick={this.handleOptionClick} className="option">{currentQuestion.optionB}</p>
-                    </div>
-                    <div className="options-container">
-                        <p onClick={this.handleOptionClick} className="option">{currentQuestion.optionC}</p>
-                        <p onClick={this.handleOptionClick} className="option">{currentQuestion.optionD}</p>   
-                    </div>
-                    <div className="button-container">
-                        <button onClick={this.handleButtonClick}>Previous</button>
-                        <button onClick={this.handleButtonClick}>Next</button>
-                        <button onClick={this.handleButtonClick}>Quit</button>
-                    </div>
+            {/* Main content */}
+            <div className="questions">
+                <h2>Quiz Mode</h2>
+                <div className="timer-container">
+                    <p>
+                        {/* Display current question number and timer */}
+                        <span className="left">{currentQuestionIndex + 1} of {numberOfQuestions}</span>
+                        <span className="right">0:00<span className="mdi mdi-clock-outline mdi-24px"></span></span>
+                    </p>
                 </div>
-            </Fragment>
+                <h5>{currentQuestion.question}</h5>
+                <div className="options-container">
+                    <p onClick={this.handleOptionClick} className="option">{currentQuestion.optionA}</p>
+                    <p onClick={this.handleOptionClick} className="option">{currentQuestion.optionB}</p>
+                </div>
+                <div className="options-container">
+                    <p onClick={this.handleOptionClick} className="option">{currentQuestion.optionC}</p>
+                    <p onClick={this.handleOptionClick} className="option">{currentQuestion.optionD}</p>   
+                </div>
+                <div className="button-container">
+                    {/* Buttons for navigation */}
+                    <button id="previous-button" onClick={this.handleButtonClick}>Previous</button>
+                    <button id="next-button" onClick={this.handleButtonClick}>Next</button>
+                    <button id="quit-button" onClick={this.handleButtonClick}>Quit</button>
+                </div>
+            </div>
+        </Fragment>
         );
-    }
+    }   
 }
 
 export default Play;
+
