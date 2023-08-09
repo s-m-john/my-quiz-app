@@ -4,16 +4,27 @@ import { Link } from 'react-router-dom';
 
 
 class QuizSummary extends Component {
+    // constructor(props) {
+    //     super(props);
+    //     this.state = {
+    //         score: 0,
+    //         numberOfQuestions: this.state.numberOfQuestions,
+    //         numberOfAnsweredQuestions: this.state.numberOfAnsweredQuestions,
+    //         correctAnswers: this.state.correctAnswers,
+    //         wrongAnswers: state.wrongAnswers,
+    //     };
+    // }
     constructor(props) {
         super(props);
         this.state = {
             score: 0,
-            numberOfQuestions: this.state.numberOfQuestions,
-            numberOfAnsweredQuestions: this.state.numberOfAnsweredQuestions,
-            correctAnswers: this.state.correctAnswers,
-            wrongAnswers: state.wrongAnswers,
+            numberOfQuestions: 0, // Initialize with 0 or the appropriate value
+            numberOfAnsweredQuestions: 0,
+            correctAnswers: 0,
+            wrongAnswers: 0,
         };
     }
+    
 
     componentDidMount () {
         const { state } = this.props.location;
