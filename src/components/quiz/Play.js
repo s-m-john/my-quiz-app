@@ -8,6 +8,7 @@ import isEmpty from '../../utils/is-empty';
 import correctNotification from '../../assets/audio/correct-answer.mp3';
 import wrongNotification from '../../assets/audio/wrong-answer.mp3';
 import buttonSound from '../../assets/audio/button-sound.mp3';
+import classnames from 'classnames';
 
 class Play extends Component {
     constructor (props) {
@@ -24,6 +25,9 @@ class Play extends Component {
             score: 0,
             correctAnswers: 0,
             wrongAnswers: 0,
+            nextButtonDisabled: false,
+            previousButtonDisabled: true,
+            previousRandomNumbers: [],
             time: {}
         };
         this.interval = null;
@@ -34,7 +38,11 @@ class Play extends Component {
         this.displayQuestions(questions, currentQuestion, nextQuestion, previousQuestion);
         this.startTimer();
     }
-        
+     
+    componentWillUnmount() {
+        clearInterval(this.interval);
+    }
+    
     //constructor(props) {
         //super(props);
         /*this.state = {
@@ -62,7 +70,11 @@ class Play extends Component {
                 nextQuestion,
                 previousQuestion,
                 numberOfQuestions: questions.length,
-                answer
+                answer,
+                previousRandomNumbers: []
+            }, () => {
+                //this.showOptions();
+                this.handleDisabledButton();
             });
         }
     };
@@ -120,7 +132,11 @@ class Play extends Component {
             currentQuestionIndex: prevState.currentQuestionIndex + 1,
             numberOfAnsweredQuestions: prevState.numberOfAnsweredQuestions + 1
         }), () => {
-            this.displayQuestions(this.state.questions, this.state.currentQuestion, this.state.nextQuestion, this.state.previousQuestion);
+            if (this.state.nextQuestion === undefined) {
+                this.endGame();
+            } else {
+                this.displayQuestions(this.state.questions, this.state.currentQuestion, this.state.nextQuestion, this.state.previousQuestion);
+            }
         });
     }
 
@@ -138,7 +154,11 @@ class Play extends Component {
             currentQuestionIndex: prevState.currentQuestionIndex + 1,
             numberOfAnsweredQuestions: prevState.numberOfAnsweredQuestions + 1
         }), () => {
-            this.displayQuestions(this.state.questions, this.state.currentQuestions, this.state.nextQuestion, this.state.previousQuestion);
+            if (this.state.nextQuestion === undefined) {
+                this.endGame();
+            } else {
+                this.displayQuestions(this.state.questions, this.state.currentQuestion, this.state.nextQuestion, this.state.previousQuestion);
+            }
         });
     }
 
@@ -159,8 +179,7 @@ class Play extends Component {
                         seconds: 0
                     }
                 }, () => {
-                    alert('Quiz has ended!');
-                    this.props.history.push('/')
+                    this.endGame();
                 });
             } else {
                 this.setState({
@@ -174,6 +193,43 @@ class Play extends Component {
     }
      
     
+    handleDisabledButton = () => {
+        if (this.state.previousQuestion === undefined || this.state.currentQuestionIndex === 0) {
+            this.setState({
+                previousButtonDisabled: true
+            });
+        } else {
+            this.setState({
+                previousButtonDisabled: false
+            });
+        }
+
+        if (this.state.nextQuestion === undefined || this.state.currentQuestionIndex + 1 === this.state.numberOfQuestions) {
+            this.setState({
+                nextButtonDisabled: true
+            });
+        } else {
+            this.setState({
+                nextButtonDisabled: false
+            });
+        }
+    }
+
+    endGame = () => {
+        alert('Quiz has ended!');
+        const { state } = this;
+        const playerStats = {
+            score: this.state.score,
+            numberOfQuestions: state.numberOfQuestions,
+            numberOfAnsweredQuestions: state.numberOfAnsweredQuestions,
+            correctAnswers: state.correctAnswers,
+            wrongAnswers: state.wrongAnswers
+        };
+        console.log(playerStats);
+        setTimeout(() => {
+            this.props.history.push('/play/quizSummary', playerStats);
+        }, 1000);
+    }
 
     render() {
         const { currentQuestion, 
@@ -218,9 +274,23 @@ class Play extends Component {
                 </div>
                 <div className="button-container">
                     {/* Buttons for navigation */}
-                    <button id="previous-button" onClick={this.handleButtonClick}>Previous</button>
-                    <button id="next-button" onClick={this.handleButtonClick}>Next</button>
-                    <button id="quit-button" onClick={this.handleButtonClick}>Quit</button>
+                    <button
+                        className={classnames('', {'disable': this.state.previousButtonDisabled})} 
+                        id="previous-button" 
+                        onClick={this.handleButtonClick}>
+                        Previous
+                    </button>
+                    <button 
+                        className={classnames('', {'disable': this.state.nextButtonDisabled})}
+                        id="next-button" 
+                        onClick={this.handleButtonClick}>
+                        Next
+                    </button>
+                    <button 
+                        id="quit-button" 
+                        onClick={this.handleButtonClick}>
+                        Quit
+                    </button>
                 </div>
             </div>
         </Fragment>
