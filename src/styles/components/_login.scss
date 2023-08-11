@@ -1,0 +1,9 @@
+.login-page-bg {
+    background-image: url('../../assets/img/login.jpg'); // Use the correct relative path
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }

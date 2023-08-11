@@ -1,9 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Handjet:wght@300&family=Shadows+Into+Light&display=swap');
 @import './base/settings';
 @import './base/base';
+
+@import './components/_login';
+@import './components/_signup';
+
 @import './components/home';
 @import './components/_quiz-instructions';
 @import './components/_play';
+
 
 //body {
     //background-color: rgb(63, 220, 212);
