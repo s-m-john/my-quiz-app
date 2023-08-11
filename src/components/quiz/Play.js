@@ -146,7 +146,7 @@ class Play extends Component {
 
     wrongAnswer = () => {
         if (navigator.vibrate) {
-            navigator.vibrate(1000); // vibrate for 1000ms when incorrect answer
+        navigator.vibrate(1000); // vibrate for 1000ms when incorrect answer
         }
         M.toast({
             html: 'Wrong Answer!',
