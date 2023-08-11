@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useFirebase } from '../firebase'; // Make sure to import the useFirebase hook
+import { auth } from '../firebase/firebaseConfig'; // Import auth from the Firebase config
+
 import 'styles/components/_signup.scss'; // Use the path alias
 
 const SignupPage = () => {
-  const firebase = useFirebase();
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -13,8 +13,8 @@ const SignupPage = () => {
   const handleSignup = async (e) => {
     e.preventDefault();
     try {
-      await firebase.auth().createUserWithEmailAndPassword(email, password);
-      const user = firebase.auth().currentUser;
+      await auth.createUserWithEmailAndPassword(email, password); // Use auth from firebaseConfig
+      const user = auth.currentUser;
       if (user) {
         await user.updateProfile({
           displayName: username,

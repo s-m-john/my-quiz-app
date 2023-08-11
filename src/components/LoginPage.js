@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useFirebase } from '../firebase'; // Make sure to import the useFirebase hook
+import { auth } from '../firebase/firebaseConfig'; // Import auth from the Firebase config
+
 import 'styles/components/_login.scss'; // Use the path alias
 
 const LoginPage = () => {
-  const firebase = useFirebase();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
@@ -12,7 +12,7 @@ const LoginPage = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      await firebase.auth().signInWithEmailAndPassword(email, password);
+      await auth.signInWithEmailAndPassword(email, password); // Use auth from firebaseConfig
     } catch (error) {
       setError(error.message);
     }
