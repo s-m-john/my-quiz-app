@@ -6,6 +6,9 @@ const Home = () => (
     <Fragment>
         <Helmet><title>Quiz App - Home</title></Helmet>
         <div id="home">
+            <div style={{textAlign: 'right', paddingRight: '20px'}}>
+                <Link className="admin-button" to="/admin">Admin</Link>
+            </div>
             <section>
                 <div style={{textAlign: 'center'}}>
                     <span className="mdi mdi-earth earth"></span>

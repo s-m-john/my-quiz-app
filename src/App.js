@@ -7,6 +7,7 @@ import Play from './components/quiz/Play';
 import QuizSummary from './components/quiz/QuizSummary';
 import LoginPage from './components/LoginPage';
 import SignupPage from './components/SignupPage';
+import AdminView from './views/AdminView';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Route path="/play/quizSummary" element={<QuizSummary />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/signup" element={<SignupPage />} />
+      <Route path="/admin" element={<AdminView />} /> {/* Route for AdminView */}
       </Routes>
     </Router>
   );
