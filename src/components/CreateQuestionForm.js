@@ -1,4 +1,3 @@
-// src/components/CreateQuestionForm.js
 import React, { useState } from 'react';
 import { firestore } from '../firebase/firebaseConfig';
 

@@ -123,3 +123,20 @@ body {
 .button-container button:last-child:hover {
     background-color: darken ($red, 20%);
 }
+
+.create-button {
+    background-color: $green; // Set the desired background color
+    border: none; // Remove border
+    color: $off-white; // Set text color
+    cursor: pointer;
+    font-family: $handjet;
+    margin-right: $md;
+    padding: $xs $sm;
+    box-shadow: $shadow;
+    transition: 0.2s linear all;
+    border-radius: $button-radius;
+
+    &:hover {
+        background-color: darken($green, 20%);
+    }
+}
