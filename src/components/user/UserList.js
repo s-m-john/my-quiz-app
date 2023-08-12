@@ -1,24 +1,22 @@
-// src/components/user/UserList.js
 import React from 'react';
-import { useFirestoreCollectionData, useFirestore } from 'reactfire';
-
+import { useFirestore, useFirestoreCollectionData } from 'reactfire';
 
 const UserList = () => {
   const firestore = useFirestore();
   const usersRef = firestore.collection('users');
 
+  const { data: users, status } = useFirestoreCollectionData(usersRef);
+
   const fetchUsers = async () => {
     try {
-      const snapshot = await usersRef.get();
-      const users = [];
-      snapshot.forEach((doc) => {
-        users.push(doc.data());
-      });
-      console.log('Users:', users);
+      console.log('Fetching users...');
+      await usersRef.get();
     } catch (error) {
       console.error('Error fetching users:', error);
     }
   };
+
+  console.log('UserList rendered');
 
   return (
     <div>
