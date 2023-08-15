@@ -10,7 +10,7 @@ import SignupPage from './components/SignupPage';
 import AdminView from './views/AdminView';
 import CreateQuestionForm from './components/CreateQuestionForm';
 import CreateQuestionPage from './pages/CreateQuestionPage';
-import CreateYourOwnQuiz from './components/quiz/CreatYourOwnQuiz';
+import CreateYourOwnQuiz from './components/quiz/CreateYourOwnQuiz';
 
 
 
