@@ -1,0 +1,133 @@
+// _create-your-own-quiz.scss
+
+@import '../base/settings'; // Import the file containing the variable
+
+.create-quiz-container {
+  background-image: url('../../assets/img/quizpage.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: space-around;
+  height: 100vh;
+  width: 100vw;
+}
+
+.quiz-form {
+  background-color: $off-white;
+  border-left: 5px solid $blue;
+  width: 80%;
+  margin: $lg auto 0 auto;
+  padding: $sm $md;
+}
+
+.quiz-form h2 {
+  text-align: center;
+  font-weight: lighter;
+}
+
+.quiz-form .left,
+.quiz-form .right {
+  display: flex;
+  justify-content: space-between;
+  margin: $md auto;
+}
+
+.quiz-form .mdi-24px {
+  color: $blue;
+  display: flex;
+  justify-content: right;
+}
+
+.quiz-form h5 {
+  font-size: $md;
+  margin-bottom: $lg;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.options-container {
+  display: inline-block;
+  width: 50%;
+}
+
+.option {
+  background-color: $blue;
+  border-radius: $button-radius;
+  color: $white;
+  cursor: pointer;
+  margin: $md auto;
+  padding: $normal;
+  transition: background-color 0.3s linear all;
+  text-align: center;
+  width: 90%;
+
+  &:hover {
+    background-color: darken($blue, 20%);
+  }
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 0 auto $sm auto;
+  padding: $md;
+  width: 80%;
+}
+
+.button-container button {
+  background-color: $blue;
+  border: none;
+  color: $off-white;
+  cursor: pointer;
+  font-family: $handjet;
+  margin-right: $md;
+  padding: $xs $sm;
+  transition: background-color 0.3s linear all;
+
+  &:first-child {
+    background-color: darken($blue, 10%);
+    box-shadow: $shadow;
+    transition: 0.2s linear all;
+
+    &:hover {
+      background-color: darken($blue, 20%);
+    }
+  }
+
+  &:nth-child(2) {
+    background-color: $green;
+    box-shadow: $shadow;
+    transition: 0.2s linear all;
+
+    &:hover {
+      background-color: darken($green, 20%);
+    }
+  }
+
+  &:last-child {
+    background-color: $red;
+    box-shadow: $shadow;
+    transition: 0.2s linear all;
+
+    &:hover {
+      background-color: darken($red, 20%);
+    }
+  }
+}
+
+.create-button {
+  background-color: $green;
+  border: none;
+  color: $off-white;
+  cursor: pointer;
+  font-family: $handjet;
+  margin-right: $md;
+  padding: $xs $sm;
+  box-shadow: $shadow;
+  transition: 0.2s linear all;
+  border-radius: $button-radius;
+
+  &:hover {
+    background-color: darken($green, 20%);
+  }
+}

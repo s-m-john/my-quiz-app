@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { firestore } from '../../firebase/firebaseConfig';
-import '../../styles/components/_play.scss';
+import '../../styles/components/_create-your-own-quiz.scss'; // Import your new styles
 
 
 const CreateYourOwnQuiz = () => {
   const [question, setQuestion] = useState('');
   const [options, setOptions] = useState(['', '', '', '']);
   const [correctOption, setCorrectOption] = useState(0);
-  const [timer, setTimer] = useState(15); // Set the default timer value
+  const [timer, setTimer] = useState(15);
 
   const handleOptionChange = (index, value) => {
     const newOptions = [...options];
@@ -27,7 +27,6 @@ const CreateYourOwnQuiz = () => {
     e.preventDefault();
 
     try {
-      // Create a new question document in Firestore
       await firestore.collection('questions').add({
         question,
         options,
@@ -35,13 +34,11 @@ const CreateYourOwnQuiz = () => {
         timer,
       });
 
-      // Reset the form
       setQuestion('');
       setOptions(['', '', '', '']);
       setCorrectOption(0);
       setTimer(15);
 
-      // Success message or redirect to the questions list
       console.log('Question created successfully.');
     } catch (error) {
       console.error('Error creating question:', error);
@@ -85,4 +82,3 @@ const CreateYourOwnQuiz = () => {
 };
 
 export default CreateYourOwnQuiz;
-
