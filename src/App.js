@@ -10,7 +10,7 @@ import SignupPage from './components/SignupPage';
 import AdminView from './views/AdminView';
 import CreateQuestionForm from './components/CreateQuestionForm';
 import CreateQuestionPage from './pages/CreateQuestionPage';
-import CreateYourOwnQuiz from './components/quiz/CreatYourOwnQuiz.js';
+import CreateYourOwnQuiz from './components/quiz/CreatYourOwnQuiz';
 
 
 
@@ -26,8 +26,8 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/admin" element={<AdminView />} /> 
-        <Route path="/create/question" component={CreateQuestionForm} />
-        <Route path="/questions" component={CreateQuestionPage} />
+        <Route path="/create/question" element={<CreateQuestionForm />} />
+        <Route path="/questions" element={<CreateQuestionPage />} />
         <Route path="/create/your-own-quiz" element={<CreateYourOwnQuiz />} />
       </Routes>
   );
