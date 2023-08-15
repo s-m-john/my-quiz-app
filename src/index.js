@@ -1,5 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+// import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom';
 import '../node_modules/@mdi/font/css/materialdesignicons.min.css';
 import '../node_modules/materialize-css/dist/css/materialize.min.css'
 import '../node_modules/materialize-css/dist/js/materialize.min.js'
@@ -20,7 +21,9 @@ import App from './App';
 
 // Instead of using ReactDom.render, use createRoot
 const rootElement = document.getElementById('root');
-const root = ReactDOM.createRoot(rootElement);
+// const root = ReactDOM.createRoot(rootElement);
+const root = createRoot(rootElement);
+
 
 // Wrap the App component with the Router component
 root.render(
