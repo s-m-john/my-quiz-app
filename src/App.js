@@ -10,6 +10,10 @@ import SignupPage from './components/SignupPage';
 import AdminView from './views/AdminView';
 import CreateQuestionForm from './components/CreateQuestionForm';
 import CreateQuestionPage from './pages/CreateQuestionPage';
+import CreateYourOwnQuiz from './components/quiz/CreatYourOwnQuiz.js';
+
+
+
 
 function App() {
   return (
@@ -24,6 +28,7 @@ function App() {
         <Route path="/admin" element={<AdminView />} /> 
         <Route path="/create/question" component={CreateQuestionForm} />
         <Route path="/questions" component={CreateQuestionPage} />
+        <Route path="/create/your-own-quiz" element={<CreateYourOwnQuiz />} />
       </Routes>
   );
 }

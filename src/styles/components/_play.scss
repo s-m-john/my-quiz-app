@@ -1,3 +1,9 @@
+// _play.scss
+
+@import '../base/settings'; // Import the file containing the variable
+// Rest of your styles, including the usage of $off-white
+
+
 body {
     background-image: url('../../assets/img/quizpage.jpg');
     background-size: cover;
