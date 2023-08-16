@@ -47,7 +47,7 @@ class ApiPlay extends Component {
 
             // Extract country names and capitals from the fetched data
             const questions = countries.map(country => ({
-                question: country.name.common,
+                question: `What is the capital of ${country.name.common}?`,
                 answer: country.capital ? country.capital[0] : 'Unknown',
             }));
 
@@ -73,13 +73,13 @@ class ApiPlay extends Component {
             currentQuestion = questions[currentQuestionIndex];
             nextQuestion = questions[currentQuestionIndex + 1];
             previousQuestion = questions[currentQuestionIndex - 1];
-            const answer = currentQuestion.answer;
+    
             this.setState({
                 currentQuestion,
                 nextQuestion,
                 previousQuestion,
                 numberOfQuestions: questions.length,
-                answer,
+                answer: currentQuestion.answer,
                 previousRandomNumbers: []
             }, () => {
                 //this.showOptions();
@@ -87,6 +87,7 @@ class ApiPlay extends Component {
             });
         }
     };
+    
 
 
     handleOptionClick = (e) => {
