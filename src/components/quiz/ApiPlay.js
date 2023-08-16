@@ -268,12 +268,12 @@ class ApiPlay extends Component {
                 </div>
                 <h5>What is the capital of {currentQuestion.name.common}?</h5>
                 <div className="options-container">
-                    <p onClick={this.handleOptionClick} className="option">{currentQuestion.optionA}</p>
-                    <p onClick={this.handleOptionClick} className="option">{currentQuestion.optionB}</p>
+                    <p onClick={this.handleOptionClick} className="option">{currentQuestion.capital[0]}</p>
+                    <p onClick={this.handleOptionClick} className="option">{this.state.previousRandomNumbers[0]}</p>
                 </div>
                 <div className="options-container">
-                    <p onClick={this.handleOptionClick} className="option">{currentQuestion.optionC}</p>
-                    <p onClick={this.handleOptionClick} className="option">{currentQuestion.optionD}</p>   
+                    <p onClick={this.handleOptionClick} className="option">{this.state.previousRandomNumbers[1]}</p>
+                    <p onClick={this.handleOptionClick} className="option">{this.state.previousRandomNumbers[2]}</p>
                 </div>
                 <div className="button-container">
                     {/* Buttons for navigation */}
