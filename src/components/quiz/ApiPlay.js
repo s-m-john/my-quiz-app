@@ -8,7 +8,7 @@ import isEmpty from '../../utils/is-empty';
 import correctNotification from '../../assets/audio/correct-answer.mp3';
 import wrongNotification from '../../assets/audio/wrong-answer.mp3';
 import buttonSound from '../../assets/audio/button-sound.mp3';
-import classnames from 'classnames';
+// import classnames from 'classnames';
 
 class ApiPlay extends Component {
     constructor(props) {
@@ -255,54 +255,37 @@ class ApiPlay extends Component {
                     <title>Quiz App - Play</title>
                 </Helmet>
                 {/* Load audio elements */}
-            <audio ref={this.correctSound} src={correctNotification}></audio>
-            <audio ref={this.wrongSound} src={wrongNotification}></audio>
-            <audio ref={this.buttonSound} src={buttonSound}></audio>
-
-            {/* Main content */}
-            <div className="questions">
-                <h2>Quiz Mode</h2>
-                <div className="timer-container">
-                    <p>
-                        {/* Display current question number and timer  */}
-                        <span className="left">{currentQuestionIndex + 1} of {numberOfQuestions}</span>
-                        <span className="right">{time.minutes}:{time.seconds}<span className="mdi mdi-clock-outline mdi-24px"></span></span>
-                    </p>
+                <audio ref={this.correctSound} src={correctNotification}></audio>
+                <audio ref={this.wrongSound} src={wrongNotification}></audio>
+                <audio ref={this.buttonSound} src={buttonSound}></audio>
+        
+                {/* Main content */}
+                <div className="questions">
+                    <h2>Quiz Mode</h2>
+                    <div className="timer-container">
+                        <p>
+                            {/* Display current question number and timer */}
+                            <span className="left">{currentQuestionIndex + 1} of {numberOfQuestions}</span>
+                            <span className="right">{time.minutes}:{time.seconds}<span className="mdi mdi-clock-outline mdi-24px"></span></span>
+                        </p>
+                    </div>
+                    <h5>What is the capital of {currentQuestion.question}?</h5>
+                    <div className="options-container">
+                        <p onClick={this.handleOptionClick} className="option">{currentQuestion.answer}</p>
+                        <p onClick={this.handleOptionClick} className="option">{this.state.previousRandomNumbers[0]}</p>
+                    </div>
+                    <div className="options-container">
+                        <p onClick={this.handleOptionClick} className="option">{this.state.previousRandomNumbers[1]}</p>
+                        <p onClick={this.handleOptionClick} className="option">{this.state.previousRandomNumbers[2]}</p>
+                    </div>
+                    {/* Rest of the code */}
                 </div>
-                <h5>What is the capital of {currentQuestion.name.common}?</h5>
-                <div className="options-container">
-                    <p onClick={this.handleOptionClick} className="option">{currentQuestion.capital[0]}</p>
-                    <p onClick={this.handleOptionClick} className="option">{this.state.previousRandomNumbers[0]}</p>
-                </div>
-                <div className="options-container">
-                    <p onClick={this.handleOptionClick} className="option">{this.state.previousRandomNumbers[1]}</p>
-                    <p onClick={this.handleOptionClick} className="option">{this.state.previousRandomNumbers[2]}</p>
-                </div>
-                <div className="button-container">
-                    {/* Buttons for navigation */}
-                    <button
-                        className={classnames('', {'disable': this.state.previousButtonDisabled})} 
-                        id="previous-button" 
-                        onClick={this.handleButtonClick}>
-                        Previous
-                    </button>
-                    <button 
-                        className={classnames('', {'disable': this.state.nextButtonDisabled})}
-                        id="next-button" 
-                        onClick={this.handleButtonClick}>
-                        Next
-                    </button>
-                    <button 
-                        id="quit-button" 
-                        onClick={this.handleButtonClick}>
-                        Quit
-                    </button>
-                </div>
-            </div>
-        </Fragment>
+            </Fragment>
         );
-    }   
+    }
 }
+
+        
 
 export default ApiPlay;
 
