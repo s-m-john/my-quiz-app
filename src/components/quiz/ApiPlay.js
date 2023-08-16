@@ -66,6 +66,17 @@ class ApiPlay extends Component {
     }
 
 
+    generateRandomIndices = () => {
+        const randomIndices = [];
+        while (randomIndices.length < 3) {
+            const randomIndex = Math.floor(Math.random() * this.state.questions.length);
+            if (!randomIndices.includes(randomIndex)) {
+                randomIndices.push(randomIndex);
+            }
+        }
+        this.setState({ previousRandomNumbers: randomIndices });
+    };
+
     displayQuestions = (questions = this.state.questions, currentQuestion, nextQuestion, previousQuestion) => {
         let { currentQuestionIndex } = this.state;
         if (!isEmpty(this.state.questions)) {
@@ -84,6 +95,7 @@ class ApiPlay extends Component {
             }, () => {
                 //this.showOptions();
                 this.handleDisabledButton();
+                this.generateRandomIndices();
             });
         }
     };
@@ -269,7 +281,7 @@ class ApiPlay extends Component {
                             <span className="right">{time.minutes}:{time.seconds}<span className="mdi mdi-clock-outline mdi-24px"></span></span>
                         </p>
                     </div>
-                    <h5>What is the capital of {currentQuestion.question}?</h5>
+                    <h5>{currentQuestion.question}?</h5>
                     <div className="options-container">
                         <p onClick={this.handleOptionClick} className="option">{currentQuestion.answer}</p>
                         <p onClick={this.handleOptionClick} className="option">{this.state.previousRandomNumbers[0]}</p>
