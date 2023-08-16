@@ -38,12 +38,19 @@ class ApiPlay extends Component {
 
     async componentDidMount() {
         try {
-            // Fetch questions from the API
-            const response = await fetch('YOUR_API_ENDPOINT_HERE');
+            // Fetch only the necessary fields from the API
+            const response = await fetch('https://restcountries.com/v3.1/all?fields=name,capital');
             if (!response.ok) {
                 throw new Error('Failed to fetch questions');
             }
-            const questions = await response.json();
+            const countries = await response.json();
+
+            // Extract country names and capitals from the fetched data
+            const questions = countries.map(country => ({
+                question: country.name.common,
+                answer: country.capital ? country.capital[0] : 'Unknown',
+            }));
+
             this.setState(
                 {
                     questions,
@@ -57,6 +64,7 @@ class ApiPlay extends Component {
             console.error('Error fetching questions:', error);
         }
     }
+
 
     displayQuestions = (questions = this.state.questions, currentQuestion, nextQuestion, previousQuestion) => {
         let { currentQuestionIndex } = this.state;
@@ -253,12 +261,12 @@ class ApiPlay extends Component {
                 <h2>Quiz Mode</h2>
                 <div className="timer-container">
                     <p>
-                        {/* Display current question number and timer */}
+                        {/* Display current question number and timer  */}
                         <span className="left">{currentQuestionIndex + 1} of {numberOfQuestions}</span>
                         <span className="right">{time.minutes}:{time.seconds}<span className="mdi mdi-clock-outline mdi-24px"></span></span>
                     </p>
                 </div>
-                <h5>{currentQuestion.question}</h5>
+                <h5>What is the capital of {currentQuestion.name.common}?</h5>
                 <div className="options-container">
                     <p onClick={this.handleOptionClick} className="option">{currentQuestion.optionA}</p>
                     <p onClick={this.handleOptionClick} className="option">{currentQuestion.optionB}</p>
