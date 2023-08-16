@@ -1,28 +1,27 @@
-// src/pages/CreateQuestionPage.js (or any other component)
 import React, { useState, useEffect } from 'react';
-import quizApi from '../api/quizApi';
+import countriesApi from '../api/countriesApi';
 
 const CreateQuestionPage = () => {
-  const [questions, setQuestions] = useState([]);
+  const [countries, setCountries] = useState([]);
 
   useEffect(() => {
-    // Fetch questions from the quizApi
-    quizApi.fetchQuestions()
-      .then((fetchedQuestions) => {
-        setQuestions(fetchedQuestions);
+    // Fetch countries using the countriesApi
+    countriesApi.fetchCountries()
+      .then((fetchedCountries) => {
+        setCountries(fetchedCountries);
       })
       .catch((error) => {
-        console.error('Error fetching questions:', error);
+        console.error('Error fetching countries:', error);
       });
   }, []);
 
-  // Render questions
+  // Render countries
   return (
     <div>
-      <h2>Quiz Questions</h2>
+      <h2>Country List</h2>
       <ul>
-        {questions.map((question) => (
-          <li key={question.id}>{question.question}</li>
+        {countries.map((country) => (
+          <li key={country.name.common}>{country.name.common}</li>
         ))}
       </ul>
     </div>
