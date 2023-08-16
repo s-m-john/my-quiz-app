@@ -66,15 +66,16 @@ class ApiPlay extends Component {
     }
 
 
-    generateRandomIndices = () => {
-        const randomIndices = [];
-        while (randomIndices.length < 3) {
+    generateRandomCapitals = () => {
+        const randomCapitals = [];
+        while (randomCapitals.length < 3) {
             const randomIndex = Math.floor(Math.random() * this.state.questions.length);
-            if (!randomIndices.includes(randomIndex)) {
-                randomIndices.push(randomIndex);
+            const randomCapital = this.state.questions[randomIndex].answer;
+            if (!randomCapitals.includes(randomCapital)) {
+                randomCapitals.push(randomCapital);
             }
         }
-        this.setState({ previousRandomNumbers: randomIndices });
+        return randomCapitals;
     };
 
     displayQuestions = (questions = this.state.questions, currentQuestion, nextQuestion, previousQuestion) => {
@@ -95,7 +96,8 @@ class ApiPlay extends Component {
             }, () => {
                 //this.showOptions();
                 this.handleDisabledButton();
-                this.generateRandomIndices();
+                const randomCapitals = this.generateRandomCapitals();
+                this.setState({ previousRandomCapitals: randomCapitals });
             });
         }
     };
@@ -284,13 +286,11 @@ class ApiPlay extends Component {
                     <h5>{currentQuestion.question}?</h5>
                     <div className="options-container">
                         <p onClick={this.handleOptionClick} className="option">{currentQuestion.answer}</p>
-                        <p onClick={this.handleOptionClick} className="option">{this.state.previousRandomNumbers[0]}</p>
+                        {this.state.previousRandomCapitals.map((capital, index) => (
+                            <p key={index} onClick={this.handleOptionClick} className="option">{capital}</p>
+                        ))}
                     </div>
-                    <div className="options-container">
-                        <p onClick={this.handleOptionClick} className="option">{this.state.previousRandomNumbers[1]}</p>
-                        <p onClick={this.handleOptionClick} className="option">{this.state.previousRandomNumbers[2]}</p>
-                    </div>
-                    {/* Rest of the code */}
+                    
                 </div>
             </Fragment>
         );
