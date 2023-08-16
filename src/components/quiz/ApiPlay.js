@@ -226,19 +226,21 @@ class ApiPlay extends Component {
     }
 
     endGame = () => {
-        alert('Quiz has ended!');
-        const { state } = this;
-        const playerStats = {
-            score: this.state.score,
-            numberOfQuestions: state.numberOfQuestions,
-            numberOfAnsweredQuestions: state.correctAnswers + state.wrongAnswers,
-            correctAnswers: state.correctAnswers,
-            wrongAnswers: state.wrongAnswers
-        };
-        console.log(playerStats);
-        setTimeout(() => {
-            this.props.history.push('/play/quizSummary', playerStats);
-        }, 1000);
+        if (this.state.numberOfAnsweredQuestions === 10) {
+            alert('Quiz has ended!'); // End quiz after 10 questions
+            const { state } = this;
+            const playerStats = {
+                score: this.state.score,
+                numberOfQuestions: state.numberOfQuestions,
+                numberOfAnsweredQuestions: state.correctAnswers + state.wrongAnswers,
+                correctAnswers: state.correctAnswers,
+                wrongAnswers: state.wrongAnswers
+            };
+            console.log(playerStats);
+            setTimeout(() => {
+                this.props.history.push('/play/quizSummary', playerStats);
+            }, 1000);
+        }
     }
 
 
