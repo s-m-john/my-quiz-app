@@ -37,9 +37,10 @@ function EditQuestionForm({ question, onCancel, onSave }) {
   return (
     <Form onSubmit={handleEditSubmit}>
       <Form.Group>
-        <Form.Label>Correct: </Form.Label>
+        <Form.Label>Correct Answer: </Form.Label>
         <Form.Control
           type="text"
+          placeholder="Please enter A, B, C, or D"
           value={editedQuestion.question}
           onChange={(e) =>
             setEditedQuestion({
@@ -50,10 +51,10 @@ function EditQuestionForm({ question, onCancel, onSave }) {
         />
       </Form.Group>
       <Form.Group>
-        <Form.Label>Correct Answer: </Form.Label>
+        <Form.Label>Hints: </Form.Label>
         <Form.Control
           type="text"
-          placeholder="Please enter A, B, C, or D"
+          placeholder="Optional"
           value={editedQuestion.correctAnswer}
           onChange={(e) =>
             setEditedQuestion({
