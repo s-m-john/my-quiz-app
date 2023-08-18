@@ -48,8 +48,10 @@ class ApiPlay extends Component {
             }
             const countries = await response.json();
 
+            const selectedCountries = this.selectRandomCountries(countries, 10); //for 10 questions
+
             // Extract country names and capitals from the fetched data
-            const questions = countries.map(country => ({
+            const questions = selectedCountries.map(country => ({
                 question: `What is the capital of ${country.name.common}?`,
                 answer: country.capital ? country.capital[0] : 'Unknown',
             }));
@@ -68,6 +70,17 @@ class ApiPlay extends Component {
         }
     }
 
+    selectRandomCountries = (countries, count) => {
+        const selectedCountries = [];
+        while (selectedCountries.length < count) {
+            const randomIndex = Math.floor(Math.random() * countries.length);
+            const randomCountry = countries[randomIndex];
+            if (!selectedCountries.includes(randomCountry)) {
+                selectedCountries.push(randomCountry);
+            }
+        }
+        return selectedCountries;
+    }
 
     generateRandomCapitals = () => {
         const randomCapitals = [];
