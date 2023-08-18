@@ -1,7 +1,16 @@
-// styles/components/_quizForm.scss
+body {
+    background-image: url('../../assets/img/chuttersnap-Ay5VDmOaKBo-unsplash.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+  }
+  // styles/components/_quizForm.scss
 
 .quiz-form-container {
-    background-image: url('../../assets/img/chuttersnap-Ay5VDmOaKBo-unsplash.jpg');
     max-width: 400px; // Adjust as needed
     margin: 0 auto;
     padding: 20px;
