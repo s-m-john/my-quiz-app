@@ -85,7 +85,8 @@ class ApiPlay extends Component {
             currentQuestion = questions[currentQuestionIndex];
             nextQuestion = questions[currentQuestionIndex + 1];
             previousQuestion = questions[currentQuestionIndex - 1];
-    
+            
+            const randomCapitals = this.generateRandomCapitals();
             this.setState({
                 currentQuestion,
                 nextQuestion,
@@ -96,7 +97,7 @@ class ApiPlay extends Component {
             }, () => {
                 //this.showOptions();
                 this.handleDisabledButton();
-                const randomCapitals = this.generateRandomCapitals();
+                
                 this.setState({ previousRandomCapitals: randomCapitals });
             });
         }
@@ -286,9 +287,10 @@ class ApiPlay extends Component {
                     <h5>{currentQuestion.question}?</h5>
                     <div className="options-container">
                         <p onClick={this.handleOptionClick} className="option">{currentQuestion.answer}</p>
-                        {this.state.previousRandomCapitals.map((capital, index) => (
+                        {this.state.previousRandomCapitals && this.state.previousRandomCapitals.map((capital, index) => (
                             <p key={index} onClick={this.handleOptionClick} className="option">{capital}</p>
                         ))}
+
                     </div>
                     
                 </div>

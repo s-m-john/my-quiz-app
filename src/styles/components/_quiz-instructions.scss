@@ -1,12 +1,37 @@
 @import '../base/settings';
 
+body {
+    background-image: url('../../assets/img/chuttersnap-Ay5VDmOaKBo-unsplash.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+// .earth {
+//     font-size: 8rem;
+//     color: $light-green;
+// }
+
 .instructions {
     border: 4px solid darken($off-white, 10%);
     background-color: rgba(0, 0, 0, 0.7);
     border-radius: $button-radius;
-    margin-top: $lg;
-    margin-bottom: $lg;
+    // margin-top: $lg;
+    // margin-bottom: $lg;
+    margin: 1px auto;
     padding: $sm $lg;
+    width: 80%;
+    max-width: 800px;
+    height: 710px;
+    
+    
+    
+   
+
 
 
     h1 {
@@ -26,10 +51,11 @@
         text-align: left;
     }
 
-    body {
-        background-color: $light-green;
-        color: darkgreen;
-        font-size: $sm;
+    .action-buttons {
+        font-size: 24px; /* Adjust the font size as needed */
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px; /* Add some spacing between the text and the instructions */
     }
 
     .browser-default {

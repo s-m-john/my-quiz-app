@@ -16,16 +16,16 @@ const QuizInstructions = () => (
                     {/* <img src={options} alt="Quiz App options example" /> */}
                 </li>
                 <li>
-                    Select the option which best answers the question by clicking (or selecting) it.
+                    Select the option which best answers the question by selecting it.
                     {/* <img src={answer} alt="Quiz App answer example" /> */}
                     </li>
                 <li>Try your best! Part of learning is making mistakes.</li>
                 <li>You can quit the game at any time. Your progress will be saved.</li>
 
             </ul>
-            <div>
-                <span className="left"><Link to="/">No, take me back</Link></span>
-                <span className="right"><Link to="/play/quiz">Okay, Let's do this!</Link></span>
+            <div className="action-buttons">
+                <span className="left"><Link to="/">&#8592; No, take me back</Link></span>
+                <span className="right"><Link to="/play/quiz">Okay, Let's do this! &#8594;</Link></span>
             </div>
         </div>
     </Fragment>
