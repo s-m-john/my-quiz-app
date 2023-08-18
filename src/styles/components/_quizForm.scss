@@ -1,3 +1,5 @@
+@import '../base/settings';
+
 body {
     background-image: url('../../assets/img/chuttersnap-Ay5VDmOaKBo-unsplash.jpg');
     background-size: cover;
@@ -11,27 +13,48 @@ body {
   // styles/components/_quizForm.scss
 
 .quiz-form-container {
-    max-width: 400px; // Adjust as needed
+    background-color: rgba(255, 255, 255, 0.9);
+    // background-color: rgba(0, 0, 0, 0.7);
+    width: 500px;
     margin: 0 auto;
     padding: 20px;
-    border: 1px solid #ccc;
+    border-left: 5px solid $blue;
+    border-radius: 10px;
     border-radius: 5px;
-  
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    
+    .options-container {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+      }
+    
+      .options-column {
+        flex: 1;
+        margin-right: 10px;
+        }
+    
     .form-group {
       margin-bottom: 15px;
     }
   
     .btn-create-quiz {
-      background-color: #007bff;
+    //   background-color: #007bff;
+      background-color: $blue;
       border: none;
       color: white;
       padding: 10px 20px;
       border-radius: 5px;
       cursor: pointer;
       transition: background-color 0.3s;
+      font-family: $handjet;
   
       &:hover {
         background-color: #0056b3;
       }
     }
+    
 }

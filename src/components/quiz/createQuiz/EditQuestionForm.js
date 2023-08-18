@@ -37,7 +37,7 @@ function EditQuestionForm({ question, onCancel, onSave }) {
   return (
     <Form onSubmit={handleEditSubmit}>
       <Form.Group>
-        <Form.Label>Edit Question</Form.Label>
+        <Form.Label>Correct: </Form.Label>
         <Form.Control
           type="text"
           value={editedQuestion.question}
@@ -49,14 +49,27 @@ function EditQuestionForm({ question, onCancel, onSave }) {
           }
         />
       </Form.Group>
-      {/* ... other inputs ... */}
+      <Form.Group>
+        <Form.Label>Correct Answer: </Form.Label>
+        <Form.Control
+          type="text"
+          placeholder="Please enter A, B, C, or D"
+          value={editedQuestion.correctAnswer}
+          onChange={(e) =>
+            setEditedQuestion({
+              ...editedQuestion,
+              correctAnswer: e.target.value,
+            })
+          }
+        />
+      </Form.Group>
       <Button variant="primary" type="submit">
         Save Changes
       </Button>
       <Button variant="link" onClick={onCancel}>
         Cancel
       </Button>
-      <Button variant="danger" onClick={() => handleDeleteQuestion(question.id)}>
+      <Button className="btn-delete-question" variant="danger" onClick={() => handleDeleteQuestion(question.id)}>
         Delete Question
       </Button>
     </Form>
