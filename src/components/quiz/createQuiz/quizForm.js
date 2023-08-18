@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Form, Button, Row, Col } from 'react-bootstrap';
-import { firestore, auth } from '../../../firebase/firebaseConfig'; // Adjust the path based on your file structure
+import { Form, Button } from 'react-bootstrap';
+import { firestore } from '../../../firebase/firebaseConfig'; // Adjust the path based on your file structure
+import '../../../styles/components/_quizForm.scss'; // Make sure to adjust the path to your stylesheet
 
 import EditQuestionForm from './EditQuestionForm';
 
@@ -23,7 +24,7 @@ function QuizForm() {
     };
 
     try {
-      // Save quizData to Firebase
+      // Save quizData to Firestore
       await firestore.collection('quizzes').add(quizData);
 
       // Clear form inputs
@@ -40,12 +41,25 @@ function QuizForm() {
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
-      {/* ... form fields ... */}
-      <Button variant="primary" type="submit">
-        Create Quiz
-      </Button>
-    </Form>
+    <div className="quiz-form-container">
+      <Form onSubmit={handleSubmit}>
+        {/* ... form fields ... */}
+        <Button variant="primary" type="submit">
+          Create Quiz
+        </Button>
+      </Form>
+
+      {/* Render EditQuestionForm when editing */}
+      <EditQuestionForm
+        question={question}
+        optionA={optionA}
+        optionB={optionB}
+        optionC={optionC}
+        optionD={optionD}
+        correctAnswer={correctAnswer}
+        timer={timer}
+      />
+    </div>
   );
 }
 

@@ -1,0 +1,28 @@
+// styles/components/_quizForm.scss
+
+.quiz-form-container {
+    background-image: url('../../assets/img/chuttersnap-Ay5VDmOaKBo-unsplash.jpg');
+    max-width: 400px; // Adjust as needed
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  
+    .form-group {
+      margin-bottom: 15px;
+    }
+  
+    .btn-create-quiz {
+      background-color: #007bff;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+  
+      &:hover {
+        background-color: #0056b3;
+      }
+    }
+}
