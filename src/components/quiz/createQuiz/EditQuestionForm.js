@@ -65,13 +65,13 @@ function EditQuestionForm({ question, onCancel, onSave }) {
         />
       </Form.Group>
       <Button variant="primary" type="submit">
-        Save Changes
+        Save
       </Button>
       <Button variant="link" onClick={onCancel}>
         Cancel
       </Button>
       <Button className="btn-delete-question" variant="danger" onClick={() => handleDeleteQuestion(question.id)}>
-        Delete Question
+        Delete
       </Button>
     </Form>
   );
