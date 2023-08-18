@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { Form, Button } from 'react-bootstrap'; // Make sure to import Form and Button from react-bootstrap
+import { Form, Button } from 'react-bootstrap';
 import firebase from 'firebase/app';
 import 'firebase/firestore';
+import { firestore, auth } from '../../../firebase/firebaseConfig'; // Adjust the path based on your file structure
 
 function EditQuestionForm({ question, onCancel, onSave }) {
   const [editedQuestion, setEditedQuestion] = useState(question);
@@ -12,16 +13,26 @@ function EditQuestionForm({ question, onCancel, onSave }) {
   };
 
   const handleDeleteQuestion = async () => {
-    const db = firebase.firestore();
-    await db.collection('quizzes').doc(question.id).delete();
+    try {
+      await firestore.collection('quizzes').doc(question.id).delete();
+    } catch (error) {
+      console.error('Error deleting question:', error);
+    }
   };
 
   const handleSaveEditedQuestion = async () => {
-    const db = firebase.firestore();
-    await db.collection('quizzes').doc(question.id).update(editedQuestion);
-    onCancel(); // Exit editing mode
-  };
+    try {
+      const user = auth.currentUser; // Get the authenticated user
+      if (user) {
+        // Use the user.uid or other properties as needed
+      }
 
+      await firestore.collection('quizzes').doc(question.id).update(editedQuestion);
+      onCancel(); // Exit editing mode
+    } catch (error) {
+      console.error('Error saving edited question:', error);
+    }
+  };
 
   return (
     <Form onSubmit={handleEditSubmit}>

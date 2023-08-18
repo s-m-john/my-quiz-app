@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Form, Button, Row, Col } from 'react-bootstrap';
-import firebase from 'firebase/app';
-import 'firebase/firestore';
+import { firestore, auth } from '../../../firebase/firebaseConfig'; // Adjust the path based on your file structure
 
 import EditQuestionForm from './EditQuestionForm';
 
@@ -23,18 +22,21 @@ function QuizForm() {
       timer: parseInt(timer),
     };
 
-    // Save quizData to Firebase
-    const db = firebase.firestore();
-    await db.collection('quizzes').add(quizData);
+    try {
+      // Save quizData to Firebase
+      await firestore.collection('quizzes').add(quizData);
 
-    // Clear form inputs
-    setQuestion('');
-    setOptionA('');
-    setOptionB('');
-    setOptionC('');
-    setOptionD('');
-    setCorrectAnswer('');
-    setTimer('');
+      // Clear form inputs
+      setQuestion('');
+      setOptionA('');
+      setOptionB('');
+      setOptionC('');
+      setOptionD('');
+      setCorrectAnswer('');
+      setTimer('');
+    } catch (error) {
+      console.error('Error creating quiz:', error);
+    }
   };
 
   return (
