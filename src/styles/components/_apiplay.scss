@@ -1,0 +1,155 @@
+// _play.scss
+
+@import '../base/settings';
+
+
+ // Import the file containing the variable
+// Rest of your styles, including the usage of $off-white
+
+
+body {
+    background-image: url('../../assets/img/quizpage.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: space-around;
+    height: 100vh;  
+    width: 100vw;
+    
+
+    .questions {
+        background-color: $off-white;
+        border-left: 5px solid $blue;
+        width: 95%;
+        margin: $lg auto 0 auto;
+        padding: $sm $md;
+    }
+
+    h2 {
+        text-align: center;
+        font-weight: lighter;
+    }
+
+    .left{
+        display: flex;
+        justify-content: space-between;
+        margin: $md auto;
+    }
+
+    .right{
+        display: flex;
+        justify-content: space-between;
+        margin: $md auto;
+    }
+
+    
+    .mdi-24px {
+        color: $blue;
+        display: flex;
+        justify-content: right;
+        //margin: 0 0 0 auto;
+        //position: relative;
+        //top: -3px;
+    }
+
+    h5 {
+        font-size: $md;
+        margin-bottom: $lg;
+        line-height: 1.5;
+        text-align: center;
+        margin-top: $md;
+    }
+
+
+    .options-container {
+        display: grid;
+        width: 100%;
+        grid-template-columns: repeat(2, 1fr);    // Create a two-column grid
+        gap: $md;
+    }
+
+    .option {
+        background-color: $blue;
+        border-radius: $button-radius;
+        color: $white;
+        cursor: pointer;
+        //display: block;
+        //font-size: $lg;
+        margin: $md auto;
+        padding: $normal;
+        transition: background-color 0.3s linear all;
+        text-align: center;
+        width: 90%;
+    }
+
+    .option:hover {
+        background-color: darken ($blue, 20%);
+    }
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 0 auto $sm auto;
+    padding: $md;
+    width: 80%;
+}
+
+.button-container button {
+    background-color: $blue;
+    border: none;
+    color: $off-white;
+    cursor: pointer;
+    font-family: $handjet;
+    margin-right: $md;
+    padding: $xs $sm;
+    transition: background-color 0.3s linear all;
+}
+
+.buttom-container button:first-child {
+    background-color: darken ($blue, 10%);
+    box-shadow: $shadow;
+    transition: 0.2 s linear all;
+}
+
+.buttom-container button:first-child:hover {
+        background-color: darken ($blue, 20%);
+}
+
+.button-container button:nth-child(2) {
+    background-color: $green;
+    box-shadow: $shadow;
+    transition: 0.2 s linear all;
+}
+    
+.button-container button:nth-child:hover {
+    background-color: darken ($green, 20%);
+}    
+
+.button-container button:last-child {
+    background-color: $red;
+    box-shadow: $shadow;
+    transition: 0.2 s linear all;
+}
+
+.button-container button:last-child:hover {
+    background-color: darken ($red, 20%);
+}
+
+.create-button {
+    background-color: $green; // Set the desired background color
+    border: none; // Remove border
+    color: $off-white; // Set text color
+    cursor: pointer;
+    font-family: $handjet;
+    margin-right: $md;
+    padding: $xs $sm;
+    box-shadow: $shadow;
+    transition: 0.2s linear all;
+    border-radius: $button-radius;
+
+    &:hover {
+        background-color: darken($green, 20%);
+    }
+}
+

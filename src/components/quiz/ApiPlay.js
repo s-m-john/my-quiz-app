@@ -9,6 +9,9 @@ import correctNotification from '../../assets/audio/correct-answer.mp3';
 import wrongNotification from '../../assets/audio/wrong-answer.mp3';
 import buttonSound from '../../assets/audio/button-sound.mp3';
 // import classnames from 'classnames';
+import '../../styles/components/_apiplay.scss';
+
+
 
 class ApiPlay extends Component {
     constructor(props) {
@@ -119,6 +122,17 @@ class ApiPlay extends Component {
         }
     }
 
+    handlePreviousButtonClick = () => {
+        this.playButtonSound();
+        if (this.state.previousQuestion !== undefined) {
+            this.setState(prevState => ({
+                currentQuestionIndex: prevState.currentQuestionIndex - 1
+            }), () => {
+                this.displayQuestions(this.state.questions, this.state.currentQuestion, this.state.nextQuestion, this.state.previousQuestion);
+            });
+        }
+    };
+
     handleNextButtonClick = () => {
         this.playButtonSound();
         if (this.state.nextQuestion !== undefined) {
@@ -130,10 +144,22 @@ class ApiPlay extends Component {
         }
     };
 
+    handleQuitButtonClick = () => {
+        if (window.confirm('Are you sure you want to quit?')) {
+            this.props.history.push('/play/quizSummary');
+        }
+    };
+
     handleButtonClick = (e) => {
         switch(e.target.id) {
+            case 'previous-button':
+                this.handlePreviousButtonClick();
+                break;
             case 'next-button':
                 this.handleNextButtonClick();
+                break;
+            case 'quit-button':
+                this.handleQuitButtonClick();
                 break;
                 
             default:
@@ -292,6 +318,18 @@ class ApiPlay extends Component {
                         ))}
 
                     </div>
+                    <div className="button-container">
+                        <button id="previous-button" onClick={this.handleButtonClick} disabled={this.state.previousButtonDisabled}>
+                            Previous
+                        </button>
+                        <button id="next-button" onClick={this.handleButtonClick} disabled={this.state.nextButtonDisabled}>
+                            Next
+                        </button>
+                        <button id="quit-button" onClick={this.handleQuitButtonClick}>
+                            Quit
+                        </button>
+                    </div>
+
                     
                 </div>
             </Fragment>
