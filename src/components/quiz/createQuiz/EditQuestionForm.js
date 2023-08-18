@@ -6,6 +6,18 @@ function EditQuestionForm({ question, onCancel, onSave }) {
       onSave(editedQuestion);
     };
   
+    const handleDeleteQuestion = async (questionId) => {
+        const db = firebase.firestore();
+        await db.collection('quizzes').doc(questionId).delete();
+      };
+    
+      const handleSaveEditedQuestion = async (questionId, updatedQuestion) => {
+        const db = firebase.firestore();
+        await db.collection('quizzes').doc(questionId).update(updatedQuestion);
+        setEditingQuestion(null);
+      };
+    
+
     return (
       <Form onSubmit={handleEditSubmit}>
         <Form.Group>
