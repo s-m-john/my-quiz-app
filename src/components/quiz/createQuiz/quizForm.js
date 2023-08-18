@@ -55,7 +55,7 @@ function QuizForm() {
             <Form.Label>A</Form.Label>
             <Form.Control
               type="text"
-              placeholder="Please enter A"
+              placeholder="Please enter text for A"
               value={optionA}
               onChange={(e) => setOptionA(e.target.value)}
             />
@@ -65,7 +65,7 @@ function QuizForm() {
             <Form.Label>B</Form.Label>
             <Form.Control
               type="text"
-              placeholder="Please enter B"
+              placeholder="Please enter text for B"
               value={optionB}
               onChange={(e) => setOptionB(e.target.value)}
             />
@@ -77,7 +77,7 @@ function QuizForm() {
             <Form.Label>C</Form.Label>
             <Form.Control
               type="text"
-              placeholder="Please enter C"
+              placeholder="Please enter text for C"
               value={optionC}
               onChange={(e) => setOptionC(e.target.value)}
             />
@@ -87,7 +87,7 @@ function QuizForm() {
             <Form.Label>D</Form.Label>
             <Form.Control
               type="text"
-              placeholder="Please enter D"
+              placeholder="Please enter text for D"
               value={optionD}
               onChange={(e) => setOptionD(e.target.value)}
             />

@@ -64,7 +64,7 @@ function EditQuestionForm({ question, onCancel, onSave }) {
           }
         />
       </Form.Group>
-      <Button variant="primary" type="submit">
+      <Button className="btn-danger" variant="save" type="submit">
         Save
       </Button>
       <Button variant="link" onClick={onCancel}>

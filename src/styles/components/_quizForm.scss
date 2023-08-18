@@ -68,7 +68,7 @@ body {
 
   .btn-create-quiz,
   .btn-primary {
-    background-color: $blue;
+    background-color: $green;
     color: white;
     transition: background-color 0.3s;
     font-family: $handjet;
@@ -77,9 +77,10 @@ body {
     position: absolute;
     top: 10px;
     right: 10px;
-    .btn-primary
+    
+
     &:hover {
-      background-color: #0056b3;
+      background-color: darkgreen;
     }
   }
 
@@ -93,6 +94,26 @@ body {
 
     &:hover {
       background-color: darkred;
+    }
+  }
+
+  .btn-save {
+    background-color: $blue; /* Choose the color you want */
+    color: white;
+    transition: background-color 0.3s;
+    font-family: $handjet;
+    border: none;
+    width: 20%;
+    margin-top: 2px;
+    padding: 10px;
+    text-align: center;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    
+  
+    &:hover {
+      background-color: darkblue; /* Choose the color you want */
     }
   }
 
