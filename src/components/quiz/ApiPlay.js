@@ -82,44 +82,97 @@ class ApiPlay extends Component {
         return selectedCountries;
     }
 
-    generateRandomCapitals = () => {
+    // generateRandomCapitals = () => {
+    //     const randomCapitals = [];
+    //     while (randomCapitals.length < 3) {
+    //         const randomIndex = Math.floor(Math.random() * this.state.questions.length);
+    //         const randomCapital = this.state.questions[randomIndex].answer;
+    //         if (!randomCapitals.includes(randomCapital)) {
+    //             randomCapitals.push(randomCapital);
+    //         }
+    //     }
+    //     return randomCapitals;
+    // };
+
+    generateRandomCapitals = (correctAnswer, count) => {
         const randomCapitals = [];
-        while (randomCapitals.length < 3) {
-            const randomIndex = Math.floor(Math.random() * this.state.questions.length);
-            const randomCapital = this.state.questions[randomIndex].answer;
-            if (!randomCapitals.includes(randomCapital)) {
-                randomCapitals.push(randomCapital);
-            }
+        while (randomCapitals.length < count) {
+          const randomIndex = Math.floor(Math.random() * this.state.questions.length);
+          const randomCapital =
+            this.state.questions[randomIndex].answer !== correctAnswer
+              ? this.state.questions[randomIndex].answer
+              : this.state.questions[
+                  (randomIndex + 1) % this.state.questions.length
+                ].answer; // Make sure the random answer is not the correct answer
+          if (!randomCapitals.includes(randomCapital)) {
+            randomCapitals.push(randomCapital);
+          }
         }
         return randomCapitals;
-    };
+      };
 
-    displayQuestions = (questions = this.state.questions, currentQuestion, nextQuestion, previousQuestion) => {
-        let { currentQuestionIndex } = this.state;
-        if (!isEmpty(this.state.questions)) {
-            questions = this.state.questions;
-            currentQuestion = questions[currentQuestionIndex];
-            nextQuestion = questions[currentQuestionIndex + 1];
-            previousQuestion = questions[currentQuestionIndex - 1];
+      
+    // displayQuestions = (questions = this.state.questions, currentQuestion, nextQuestion, previousQuestion) => {
+    //     let { currentQuestionIndex } = this.state;
+    //     if (!isEmpty(this.state.questions)) {
+    //         questions = this.state.questions;
+    //         currentQuestion = questions[currentQuestionIndex];
+    //         nextQuestion = questions[currentQuestionIndex + 1];
+    //         previousQuestion = questions[currentQuestionIndex - 1];
             
-            const randomCapitals = this.generateRandomCapitals();
-            this.setState({
-                currentQuestion,
-                nextQuestion,
-                previousQuestion,
-                numberOfQuestions: questions.length,
-                answer: currentQuestion.answer,
-                previousRandomNumbers: []
-            }, () => {
-                //this.showOptions();
-                this.handleDisabledButton();
+    //         const randomCapitals = this.generateRandomCapitals();
+    //         this.setState({
+    //             currentQuestion,
+    //             nextQuestion,
+    //             previousQuestion,
+    //             numberOfQuestions: questions.length,
+    //             answer: currentQuestion.answer,
+    //             previousRandomNumbers: []
+    //         }, () => {
+    //             //this.showOptions();
+    //             this.handleDisabledButton();
                 
-                this.setState({ previousRandomCapitals: randomCapitals });
-            });
-        }
-    };
+    //             this.setState({ previousRandomCapitals: randomCapitals });
+    //         });
+    //     }
+    // };
     
 
+    displayQuestions = (
+        questions = this.state.questions,
+        currentQuestion,
+        nextQuestion,
+        previousQuestion
+      ) => {
+        let { currentQuestionIndex } = this.state;
+        if (!isEmpty(this.state.questions)) {
+          questions = this.state.questions;
+          currentQuestion = questions[currentQuestionIndex];
+          nextQuestion = questions[currentQuestionIndex + 1];
+          previousQuestion = questions[currentQuestionIndex - 1];
+      
+          const randomCapitals = this.generateRandomCapitals(
+            currentQuestion.answer,
+            3
+          );
+      
+          this.setState(
+            {
+              currentQuestion,
+              nextQuestion,
+              previousQuestion,
+              numberOfQuestions: questions.length,
+              answer: currentQuestion.answer,
+              previousRandomNumbers: [],
+              previousRandomCapitals: randomCapitals, // Update random answer choices
+            },
+            () => {
+              this.handleDisabledButton();
+            }
+          );
+        }
+      };
+      
 
     handleOptionClick = (e) => {
         if (e.target.innerHTML.toLowerCase() === this.state.answer.toLowerCase()) {
@@ -149,14 +202,31 @@ class ApiPlay extends Component {
     handleNextButtonClick = () => {
         this.playButtonSound();
         if (this.state.nextQuestion !== undefined) {
-            this.setState(prevState => ({
+            this.setState(
+                prevState => ({
                 currentQuestionIndex: prevState.currentQuestionIndex + 1
-            }), () => {
-                this.displayQuestions(this.state.questions, this.state.currentQuestion, this.state.nextQuestion, this.state.previousQuestion);
-            });
-        }
-    };
-
+            }), 
+            () => {
+                // this.displayQuestions(this.state.questions, this.state.currentQuestion, this.state.nextQuestion, this.state.previousQuestion);
+                this.displayQuestions(
+                    this.state.questions,
+                    this.state.currentQuestion,
+                    this.state.nextQuestion,
+                    this.state.previousQuestion
+                    );
+                }
+              );
+            }
+          };
+          shuffleArray = (array) => {
+            const shuffledArray = [...array];
+            for (let i = shuffledArray.length - 1; i > 0; i--) {
+              const j = Math.floor(Math.random() * (i + 1));
+              [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
+            }
+            return shuffledArray;
+          };
+          
     handleQuitButtonClick = () => {
         if (window.confirm('Are you sure you want to quit?')) {
             this.props.history.push('/play/quizSummary');
@@ -329,6 +399,24 @@ class ApiPlay extends Component {
                         {this.state.previousRandomCapitals && this.state.previousRandomCapitals.map((capital, index) => (
                             <p key={index} onClick={this.handleOptionClick} className="option">{capital}</p>
                         ))}
+
+
+                    {/* <div className="options-container">
+                    <p onClick={this.handleOptionClick} className="option">
+                        {this.state.previousRandomCapitals[0]}
+                    </p>
+                    <p onClick={this.handleOptionClick} className="option">
+                        {this.state.previousRandomCapitals[1]}
+                    </p>
+                    <p onClick={this.handleOptionClick} className="option">
+                        {this.state.previousRandomCapitals[2]}
+                    </p>
+                    <p onClick={this.handleOptionClick} className="option">
+                        {currentQuestion.answer}
+                    </p>
+                    </div> */}
+
+                    
 
                     </div>
                     <div className="button-container">
